@@ -13,7 +13,7 @@ body {
 	text-align: center;
 }
 .box h1 {
-    font-size: 70px; /* Set the font size for h1 */
+    font-size: 70px; 
 }
 
 .box h1:hover {
@@ -84,7 +84,7 @@ h4 {
 	color: rgb(236, 143, 56)
 }
 .image1entry1 img {
-	width: 500px;
+	width: 460px;
 	height: auto;
 margin-top: -68px;
 margin-left: 0 -25px;
@@ -95,7 +95,7 @@ transition: transform 5s ease;
 }
 
   .image1entry2 img {
-	width: 500px;
+	width: 460px;
 	height: auto; 
 	float: left; 
 	margin: 0 470px; 
