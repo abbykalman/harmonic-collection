@@ -12,6 +12,13 @@ body {
 	margin-top: 25px;
 	text-align: center;
 }
+.box h1 {
+    font-size: 70px; /* Set the font size for h1 */
+}
+
+.box h1:hover {
+    color: rgb(236, 143, 56); 
+}
 h1 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-style: italic;
@@ -81,21 +88,35 @@ h4 {
 	height: auto;
 margin-top: -68px;
 margin-left: 0 -25px;
+transition: transform 5s ease;
   }
+  .image1entry1 img:hover {
+    transform: rotate(70deg);
+}
+
   .image1entry2 img {
 	width: 500px;
 	height: auto; 
 	float: left; 
 	margin: 0 470px; 
 	margin-top: -570px;
+	transition: transform 5s ease;
   }
+  .image1entry2 img:hover {
+    transform: rotate(-70deg);
+}
+
   .image1entry3 img {
 	width: 500px;
 	height: auto; 
 	float: left; 
 	margin: 0 958px; 
 	margin-top: -700px;
+	transition: transform 5s ease;
   }
+  .image1entry3 img:hover {
+    transform: rotate(70deg);
+}
   .entry1.link {
 	  background-color: rgb(236, 143, 56);
 	  border-top: solid rgb(255, 255, 255) 4px;
