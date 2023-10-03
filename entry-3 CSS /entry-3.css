@@ -1,11 +1,13 @@
-:root {
-	--gradient: radial-gradient(
-		#ff5733
-		 #ffef00);
-
-
-
+body {
+    background-color: #efd69a;
+    background-image: radial-gradient(circle, #f15a38, #e6de0d);
+    background-size: 90%;
+    animation: bg-animation 5s infinite
+   
 }
+
+
+
 body {
 	background-color: #efd69a;
 	box-sizing: border-box;
