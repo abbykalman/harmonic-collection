@@ -1,14 +1,28 @@
 body {
     background-color: #efd69a;
+    background-image: radial-gradient(circle, #f15a38, #e6de0d);
+    background-size: 400%;
+    animation: bg-animation 5s infinite
+   
 }
+
+@keyframes bg-animation {
+    0% {
+        background-position: left
+    }
+    100% {
+        background-position: right;
+    }
+}
+
 .title h1:hover {
-    color: rgb(236, 143, 56); 
+    color: rgb(126, 63, 3); 
 }
 .title{
     font-family: monospace;
     font-size: 1.8rem;
     color: white;
-    border: 2px dotted white;
+    border: 3px dotted white;
     padding: 20px;
     margin-top: 500px auto 0 auto;
     width: 500px;
@@ -33,7 +47,7 @@ body {
     padding: 20px; /* Add padding to create space from the top */
   }
   .message-container:hover {
-    box-shadow: 0 0 10px rgb(236, 143, 56); 
+    box-shadow: 0 0 10px rgb(255, 123, 0); 
 }
   
   .message {
@@ -44,7 +58,7 @@ body {
   }
   
   .sent {
-    background-color: rgb(236, 143, 56);
+    background-color: rgb(255, 123, 0);
     align-self: flex-end;
     font-family: Arial, Helvetica, sans-serif;
   }
@@ -60,7 +74,7 @@ body {
     justify-content: center;
     max-width: 300px;
     margin: 10px;
-    border: 3px dashed rgb(236, 143, 56);
+    border: 3px dashed rgb(203, 98, 0);;
     height: 200px;
     width: 900px;
     padding: 20px; /* Add padding to create space from the top */
@@ -91,7 +105,7 @@ body {
     padding: 20px; 
 }
 .message-container-3:hover {
-    box-shadow: 0 0 10px rgb(236, 143, 56); 
+    box-shadow: 0 0 10px rgb(255, 123, 0); 
 }
 
 .message {
@@ -106,7 +120,7 @@ body {
     justify-content: center;
     max-width: 300px;
     margin: -766px auto 0 auto; 
-    border: 3px dashed rgb(236, 143, 56);
+    border: 3px dashed rgb(203, 98, 0);;
     height: 200px;
     width: 300px; 
     padding: 20px; 
@@ -121,7 +135,7 @@ body {
     justify-content: center;
     max-width: 300px;
     margin: 300px auto 0 auto; 
-    border: 3px dashed rgb(236, 143, 56);
+    border: 3px dashed rgb(203, 98, 0);;
     height: 200px;
     width: 300px; 
     padding: 20px; 
@@ -136,7 +150,7 @@ body {
     justify-content: center;
     max-width: 300px;
     margin: -534px auto 0 auto;
-    border: 3px dashed rgb(236, 143, 56);
+    border: 3px dashed rgb(203, 98, 0);;
     height: 200px;
     width: 900px;
     padding: 20px; /* Add padding to create space from the top */
@@ -158,7 +172,7 @@ body {
     padding: 20px
 }
 .message-container-7:hover {
-    box-shadow: 0 0 10px rgb(236, 143, 56);  
+    box-shadow: 0 0 10px rgb(255, 123, 0);  
 }
 .message-container-8 {
     display: flex;
@@ -173,5 +187,5 @@ body {
     padding: 20px
 }
 .message-container-8:hover {
-    box-shadow: 0 0 10px rgb(236, 143, 56); 
+    box-shadow: 0 0 10px rgb(255, 123, 0); 
 }
