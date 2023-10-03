@@ -1,0 +1,177 @@
+body {
+    background-color: #efd69a;
+}
+.title h1:hover {
+    color: rgb(236, 143, 56); 
+}
+.title{
+    font-family: monospace;
+    font-size: 1.8rem;
+    color: white;
+    border: 2px dotted white;
+    padding: 20px;
+    margin-top: 500px auto 0 auto;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 300px;
+    margin: 10px;
+    border: 3px dotted white;
+    height: 200px;
+    width: 900px;
+    padding: 20px; /* Add padding to create space from the top */
+  }
+  .message-container:hover {
+    box-shadow: 0 0 10px rgb(236, 143, 56); 
+}
+  
+  .message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .sent {
+    background-color: rgb(236, 143, 56);
+    align-self: flex-end;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .received {
+    background-color: rgb(255, 255, 255);
+    align-self: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .message-container-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 300px;
+    margin: 10px;
+    border: 3px dashed rgb(236, 143, 56);
+    height: 200px;
+    width: 900px;
+    padding: 20px; /* Add padding to create space from the top */
+  }
+  .message-container-2:hover {
+    box-shadow: 0 0 10px white; 
+}
+.received {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.sent2 {
+    background-color: rgb(236, 143, 56);
+    align-self: flex-start;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.message-container-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 300px;
+    margin: 10px;
+    border: 3px dotted white;
+    height: 200px;
+    width: 900px;
+    padding: 20px; 
+}
+.message-container-3:hover {
+    box-shadow: 0 0 10px rgb(236, 143, 56); 
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+  .message-container-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 300px;
+    margin: -766px auto 0 auto; 
+    border: 3px dashed rgb(236, 143, 56);
+    height: 200px;
+    width: 300px; 
+    padding: 20px; 
+   
+  }
+  .message-container-4:hover {
+    box-shadow: 0 0 10px white; 
+}
+.message-container-5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 300px;
+    margin: 300px auto 0 auto; 
+    border: 3px dashed rgb(236, 143, 56);
+    height: 200px;
+    width: 300px; 
+    padding: 20px; 
+   
+  }
+  .message-container-5:hover {
+    box-shadow: 0 0 10px white; 
+}
+.message-container-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 300px;
+    margin: -534px auto 0 auto;
+    border: 3px dashed rgb(236, 143, 56);
+    height: 200px;
+    width: 900px;
+    padding: 20px; /* Add padding to create space from the top */
+    float: right;
+  }
+  .message-container-6:hover {
+    box-shadow: 0 0 10px white; 
+}
+.message-container-7 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 300px;
+    float: right;
+    margin: -793px auto 0 auto;
+    border: 3px dotted white;
+    height: 200px;
+    width: 900px;
+    padding: 20px
+}
+.message-container-7:hover {
+    box-shadow: 0 0 10px rgb(236, 143, 56);  
+}
+.message-container-8 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 300px;
+    float: right;
+    margin: -275px auto 0 auto;
+    border: 3px dotted white;
+    height: 200px;
+    width: 900px;
+    padding: 20px
+}
+.message-container-8:hover {
+    box-shadow: 0 0 10px rgb(236, 143, 56); 
+}
