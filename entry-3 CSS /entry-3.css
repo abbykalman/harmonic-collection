@@ -20,6 +20,8 @@ body {
 	box-sizing: border-box;
     background-image: radial-gradient(circle, #ff5733, #ffef00);
 }
+
+
 .box {
 	border: 3px dotted rgb(203, 98, 0);
 	padding: 20px;

@@ -1,0 +1,141 @@
+
+
+body {
+  background-image: radial-gradient(circle, #55d593, #cce749, rgb(236, 87, 41));
+  background-size: 400%;
+  animation: bg-animation 9s infinite;
+}
+
+@keyframes bg-animation {
+  0% {
+      background-position: left
+  }
+  100% {
+      background-position: right;
+  }
+}
+
+
+
+h1 {
+  font-family: monospace;
+  font-size: 2em;
+  color: rgb(229, 228, 141);
+  border: dashed 4px;
+border-color: #ddc402;
+width: fit-content;
+}
+body h1:hover {
+  color: #f2ff00; 
+}
+
+a::before {
+  content:'{';
+}
+
+a::after {
+  content: '}';
+}
+
+a:hover {
+  opacity: 50%;
+}
+header {
+  background-size: cover;
+  background-position: bottom;
+  color: var(--grey);
+}
+
+
+nav {
+  background-color: var(--grey);
+  color: var(--brown);
+  font-family: var(--mono);
+  font-weight: 100;
+  font-size: 0.75rem;
+  padding: 1rem 2rem;
+  margin: 0 var(--page-spacing);
+  height: 8vh;
+  box-shadow: 0px 0px 10px 0px #66565230;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+main {
+
+  padding: var(--page-spacing);
+  margin: var(--page-spacing);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-spacer {
+  width: 100%;
+  padding-top: 100%;
+}
+
+.img-with-shade {
+  width: 100%;
+  position: relative;
+}
+
+
+.img-with-shade> .img-wrapper {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 0; /* Change this line */
+  top: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.img-wrapper img{
+  position: absolute;
+  background-color: #ffffff;
+  padding: 0;
+  top: 0;
+  height: 100%;
+  object-fit: cover;
+}
+.img-wrapper {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 0;
+  top: 0;
+  height: 100%;
+  object-fit: cover;
+  border: none; /* Remove border */
+}
+
+.img-with-shade .shade {
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(20px);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: height 500ms ease-in-out;
+}
+
+.img-with-shade:hover>.shade {
+  height: 0;
+}
+
+.img-with-shade:not(:hover)>.shade {
+  height: 100%;
+  transition: 4s ease-in-out;
+}
+@media screen and (min-width: 700px){
+  :root{
+      font-size: 24px;
+  }
+  main{
+      grid-template-columns: repeat(4, 1fr);
+  }
+
+  
+}
