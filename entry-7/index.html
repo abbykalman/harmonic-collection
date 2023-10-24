@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embracing Illumination: Crafting Empathetic Environments</title>
+    <link href="../entry-7-css/entry-7-css.css" rel="stylesheet">
+    <style>
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            position: relative;
+            top: -180px; /* Adjust the value as needed */
+            font-family: Helvetica, Arial, sans-serif;
+            font-style: italic;
+            color: white;
+        }
+        .title:hover {
+    transform: scale(1.1); /* Increase the scale factor as needed */
+    transition: transform 0.3s ease; /* Add a transition for a smooth effect */
+}
+        .lamp {
+            width: 200px;
+            height: 200px;
+            transition: filter 0.3s;
+        }
+
+        .lamp:hover {
+            filter: brightness(1.5);
+        }
+
+        h1 {
+            border: dotted;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: inset;
+            font-family: monospace;
+        }
+
+        .button-red {
+            background-color: #FF5733; /* Red */
+            color: #fff;
+        }
+
+        .button-turquoise {
+            background-color: #40E0D0; /* Turquoise */
+            color: #fff;
+        }
+
+        .button-orange {
+            background-color: #FFA500; /* Orange */
+            color: #fff;
+        }
+
+        .button-pink {
+            background-color: #FF69B4; /* Pink */
+            color: #fff;
+        }
+
+        .button-yellowgreen {
+            background-color: #ADFF2F; /* Yellow/Green */
+            color: #000;
+        }
+
+        .button-electricblue {
+            background-color: #7DF9FF; /* Electric Blue */
+            color: #000;
+        }
+
+        .button-blacknwhite {
+            background-color: #000; /* Black and White */
+            color: #fff;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+        .description {
+            font-size: 18px;
+            color: white;
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+            font-family: monospace;
+            transform: translate(0%, -180%);
+        }
+
+        .show-description {
+            background-color: #fff700;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: -50px;
+            font-family: monospace;
+            transform: translate(0%, -200%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Embracing Illumination: Crafting Empathetic Environments</h1>
+        <button class="show-description" onclick="showDescription()">About</button>
+        <div class="description" id="description">
+            
+        </div>
+        <img class="lamp" id="lamp" src="blacknwhite.png" alt="Black and White Lamp">
+        <div class="button-container">
+            <button class="button-red" onclick="changeLamp('red.png')">Red</button>
+            <button class="button-turquoise" onclick="changeLamp('turquoise.png')">Turquoise</button>
+            <button class="button-orange" onclick="changeLamp('orange.png')">Orange</button>
+            <button class="button-pink" onclick="changeLamp('pink.png')">Pink</button>
+            <button class="button-yellowgreen" onclick="changeLamp('yellowandgreen.png')">Yellow/Green</button>
+            <button class="button-electricblue" onclick="changeLamp('electricblue.png')">Electric Blue</button>
+            <button class="button-blacknwhite" onclick="changeLamp('blacknwhite.png')">Black and White</button>
+        </div>
+    </div>
+
+    <script>
+        function changeLamp(color) {
+            const lamp = document.getElementById('lamp');
+            lamp.src = color;
+        }
+
+        function showDescription() {
+            const description = document.getElementById('description');
+            description.style.display = 'block';
+            const descriptionText = "Inspired by James Turell and his usage of lighting and ambience to create a safe space, I thought it would be fun to create an interactive entry where colors can be switched and changed depending on the person's mood.";
+            let index = 0;
+
+            function typeDescription() {
+                if (index < descriptionText.length) {
+                    description.innerHTML += descriptionText.charAt(index);
+                    index++;
+                    setTimeout(typeDescription, 50); // Adjust the speed (milliseconds) here
+                }
+            }
+
+            typeDescription();
+        }
+    </script>
+    <div class="nextentry">
+        <ul style="color: rgb(255, 255, 255);">
+          <li><a style="color: rgb(255, 255, 255);" href="https://abbykalman.github.io/harmonic-collection/entry-8/" class="NextEntry">Next Entry</a></li>
+          <li><a style="color: rgb(255, 255, 255);"href="https://abbykalman.github.io/harmonic-collection/entry-3/entry-3.html">Welcome Home</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+

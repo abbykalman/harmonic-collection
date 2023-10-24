@@ -1,0 +1,19 @@
+body {
+
+    background-image: radial-gradient(circle, #de65b0, #dd4646, rgb(198, 128, 248));
+    background-size: 400%;
+    animation: bg-animation 9s infinite;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: left
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+.button {
+    font-family: monospace;
+}
