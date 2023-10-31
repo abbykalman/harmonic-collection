@@ -1,0 +1,14 @@
+body {
+
+    background-image: radial-gradient(circle, #545408, #719c54, rgb(28, 128, 105));
+    background-size: 400%;
+    animation: bg-animation 9s infinite;
+}
+@keyframes bg-animation {
+    0% {
+        background-position: left
+    }
+    100% {
+        background-position: right;
+    }
+}
