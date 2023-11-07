@@ -1,0 +1,58 @@
+body {
+
+    background-image: radial-gradient(circle, #ff009d, #13ebce, rgb(238, 248, 128));
+    background-size: 400%;
+    animation: bg-animation 9s infinite;
+}
+@keyframes bg-animation {
+    0% {
+        background-position: left
+    }
+    100% {
+        background-position: right;
+    }
+}
+.subhead {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    text-decoration-color:   color:rgb(51, 0, 255);
+    border: 2px solid #ff009d;
+    display: inline-block; /* Corrected value */
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.bot-response {
+    font-family: monospace;
+    text-align: left;
+    color: rgb(51, 0, 255); /* Added rule to set text color to white */
+}
+/* Add this CSS to your existing code */
+
+/* Styling for input field */
+#userInput {
+    padding: 10px;
+    border: 2px solid #ff009d; /* Pink border */
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark text color */
+}
+
+/* Styling for send button */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff009d; /* Pink background */
+    color: #fff; /* White text color */
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff0055; /* Darker pink on hover */
+}

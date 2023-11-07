@@ -1,0 +1,159 @@
+<link href="../entry-9-css/entry-9-css.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empathy Bot</title>
+    <link href="../entry-9-css/entry-9-css.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .welcome-message {
+            border: 3px dotted #ffffff;
+            font-style: italic;
+            font-family: Helvetica, sans-serif;
+            text-align: left;
+            padding: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .welcome-message:hover {
+            color: #ff009d;
+        }
+
+        .subhead {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .bot-response {
+            font-family: monospace;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="welcome-message" id="welcomeMessage"></h1>
+    <div class="subhead">Type in an emotion!</div>
+    <div id="conversation">
+        <div class="bot-response" id="botResponse">
+            <p><em>Empathy Bot:</em></p>
+        </div>
+    </div>
+    <input type="text" id="userInput" placeholder="How are you feeling today?">
+    <button onclick="respondToEmotions()">Send</button>
+
+    <script>
+        function typeOutText(element, text, interval) {
+            let i = 0;
+            const intervalId = setInterval(function() {
+                element.innerHTML += text.charAt(i);
+                i++;
+                if (i >= text.length) {
+                    clearInterval(intervalId);
+                }
+            }, interval);
+        }
+
+        const welcomeMessage = document.getElementById("welcomeMessage");
+        const botResponse = document.getElementById("botResponse");
+
+        typeOutText(welcomeMessage, "Welcome to the Empathy Bot!", 50);
+        setTimeout(function() {
+            typeOutText(botResponse, "Hi, how are you feeling today?", 50);
+        }, 2500);
+
+        function respondToEmotions() {
+            var userInput = document.getElementById("userInput").value;
+            var conversationDiv = document.getElementById("conversation");
+
+            if (userInput.toLowerCase() === 'bye') {
+                conversationDiv.innerHTML += "<div class='bot-response'><p><em>Empathy Bot:</em> Goodbye! Take care.</p></div>";
+                document.getElementById("userInput").disabled = true;
+                document.getElementById("sendButton").disabled = true;
+                return;
+            }
+
+            var botMessage = document.createElement("div");
+            botMessage.classList.add("bot-response");
+
+            var response = '';
+
+            if (userInput.toLowerCase().includes('sad') || userInput.toLowerCase().includes('stuck') ||
+                userInput.toLowerCase().includes('fight') || userInput.toLowerCase().includes('upset') ||
+                userInput.toLowerCase().includes('not well') || userInput.toLowerCase().includes('not good') ||
+                userInput.toLowerCase().includes('long day') || userInput.toLowerCase().includes('tired') ||
+                userInput.toLowerCase().includes('stressed') || userInput.toLowerCase().includes('anxious') ||
+                userInput.toLowerCase().includes('annoyed') || userInput.toLowerCase().includes('irritated') ||
+                userInput.toLowerCase().includes('frustrated') || userInput.toLowerCase().includes('can\'t handle') ||
+                userInput.toLowerCase().includes('doesn\'t love') || userInput.toLowerCase().includes('not love')) {
+                // Comforting replies
+                var comfortingReplies = [
+                    "I'm so sorry to hear that, just know you're doing amazing.",
+                    "I know I'm a robot, but I understand that can be a difficult situation and your feelings are valid.",
+                    "I've talked to many humans and this is a normal occurrence.",
+                    "Remember, you're not alone in this. We all have our tough days.",
+                    "You're strong, and you'll get through this. I believe in you.",
+                    "Take a deep breath. It's okay to feel this way.",
+                    "It's okay to ask for help. You don't have to go through this alone.",
+                    "You're not alone in this. I'm here to support you.",
+                    "You're brave for sharing this. I'm here for you.",
+                    "Remember, it's okay to take things one step at a time.",
+                    "You're capable of handling more than you think. Take your time.",
+                    "I'm here to listen. Let me know how I can help.",
+                    "Feelings are complex, and it's okay to feel this way. You're not alone.",
+                    "Your feelings are valid, and I'm here to support you.",
+                    "You're not alone. I'm here to listen and help in any way I can."
+                ];
+                response = comfortingReplies[Math.floor(Math.random() * comfortingReplies.length)];
+            } else if (userInput.toLowerCase().includes('happy') || userInput.toLowerCase().includes('excited') ||
+                userInput.toLowerCase().includes('good') || userInput.toLowerCase().includes('great') ||
+                userInput.toLowerCase().includes('amazing') || userInput.toLowerCase().includes('enjoyable') ||
+                userInput.toLowerCase().includes('cool') || userInput.toLowerCase().includes('love')) {
+                // Happy replies
+                var happyResponses = [
+                    "That sounds wonderful!",
+                    "I'm so glad to hear!",
+                    "That's amazing! Life is beautiful.",
+                    "It's wonderful to hear that you're feeling happy!",
+                    "What a lovely feeling!",
+                    "Feeling well is fantastic!",
+                    "Excitement is contagious!",
+                    "Your happiness is infectious!",
+                    "Your positive energy is uplifting!",
+                    "It's moments like these that make life beautiful.",
+                    "I'm here to share in your joy.",
+                    "Embrace this feeling of joy.",
+                    "Your happiness is contagious!",
+                    "I'm so happy for you!",
+                    "Your joy brightens my virtual day!"
+                ];
+                response = happyResponses[Math.floor(Math.random() * happyResponses.length)];
+            } else {
+                response = "I'm here to listen. How would you like to express your feelings?";
+            }
+
+            botMessage.innerHTML = "<p><em>Empathy Bot:</em> " + response + "</p>";
+            conversationDiv.appendChild(botMessage);
+
+            var userInputDiv = document.createElement("div");
+            userInputDiv.classList.add("bot-response");
+            userInputDiv.innerHTML = "<p><em>You:</em> " + userInput + "</p>";
+            conversationDiv.appendChild(userInputDiv);
+
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
