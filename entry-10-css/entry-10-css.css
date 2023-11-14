@@ -1,0 +1,53 @@
+body {
+
+    background-image: radial-gradient(circle, #ffffff, #ff0084, rgb(255, 146, 239));
+    background-size: 400%;
+    animation: bg-animation 9s infinite;
+}
+@keyframes bg-animation {
+    0% {
+        background-position: left
+    }
+    100% {
+        background-position: right;
+    }
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.content {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#likeCount {
+    margin: 10px 0;
+}
+
+#message {
+    font-style: italic;
+    color: #555;
+}
