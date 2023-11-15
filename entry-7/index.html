@@ -1,195 +1,306 @@
+<link href="../entry-7-css/entry-7-css.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embracing Illumination: Crafting Empathetic Environments</title>
-    <link href="../entry-7-css/entry-7-css.css" rel="stylesheet">
+    <title>Rainbow Gradient Background</title>
     <style>
-        .body{
-            position: flex;
-            flex-direction: column;
-        }
-        .container {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        body {
+            margin: 0;
             height: 100vh;
-            position: flex;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(circle, #ffffff, #808080, #000000);
+            background-size: 400%;
+            animation: bg-animation 9s infinite;
+            font-family: monospace;
+            overflow: hidden;
+            position: relative;
         }
 
-        .title {
-            font-size: 36px;
-            margin-bottom: 10px;
-            position: relative;
-            top: -180px; /* Adjust the value as needed */
-            font-family: Helvetica, Arial, sans-serif;
+        @keyframes bg-animation {
+          0% {
+              background-position: left
+          }
+
+          100% {
+              background-position: right;
+          }
+      }
+    
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            left: -200px;
+            display: flex;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, left 1s ease-in-out;
+        }
+
+        .circle-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .color-bar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .selected-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        .refresh-button {
+          position: absolute;
+          bottom: 20px;
+          right: 20px; /* Adjust the positioning */
+          padding: 10px;
+          font-size: 24px;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out, right 1s ease-in-out;
+      }
+
+      .refresh-button img {
+          width: 24px; /* Adjust the width as needed */
+          height: 24px; /* Adjust the height as needed */
+      }
+        .intro-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: white;
+            overflow: hidden;
+        }
+
+        .highlight {
             font-style: italic;
             color: white;
-            position: flex;
-        }
-        .title:hover {
-    transform: scale(1.1); /* Increase the scale factor as needed */
-    transition: transform 0.3s ease; /* Add a transition for a smooth effect */
-}
-        .lamp {
-            width: 200px;
-            height: 200px;
-            transition: filter 0.3s;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: showHighlight 4s forwards;
         }
 
-        .lamp:hover {
-            filter: brightness(1.5);
-        }
-
-        h1 {
-            border: dotted;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .button-container button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: inset;
-            font-family: monospace;
-        }
-
-        .button-red {
-            background-color: #FF5733; /* Red */
-            color: #fff;
-        }
-
-        .button-turquoise {
-            background-color: #40E0D0; /* Turquoise */
-            color: #fff;
-        }
-
-        .button-orange {
-            background-color: #FFA500; /* Orange */
-            color: #fff;
-        }
-
-        .button-pink {
-            background-color: #FF69B4; /* Pink */
-            color: #fff;
-        }
-
-        .button-yellowgreen {
-            background-color: #ADFF2F; /* Yellow/Green */
-            color: #000;
-        }
-
-        .button-electricblue {
-            background-color: #7DF9FF; /* Electric Blue */
-            color: #000;
-        }
-
-        .button-blacknwhite {
-            background-color: #000; /* Black and White */
-            color: #fff;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            border-radius: 5px;
-        }
-
-        .button:hover {
-            background-color: #555;
-        }
-
-        .description {
-            font-size: 18px;
-            color: white;
-            margin-top: 20px;
-            display: none; /* Initially hidden */
-            font-family: monospace;
-            transform: translate(0%, -180%);
-        }
-
-        .show-description {
-            background-color: #fff700;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: -50px;
-            font-family: monospace;
-            transform: translate(0%, -200%);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1 class="title">Embracing Illumination: Crafting Empathetic Environments</h1>
-        <button class="show-description" onclick="showDescription()">About</button>
-        <div class="description" id="description">
-            
-        </div>
-        <img class="lamp" id="lamp" src="blacknwhite.png" alt="Black and White Lamp">
-        <div class="button-container">
-            <button class="button-red" onclick="changeLamp('red.png')">Red</button>
-            <button class="button-turquoise" onclick="changeLamp('turquoise.png')">Turquoise</button>
-            <button class="button-orange" onclick="changeLamp('orange.png')">Orange</button>
-            <button class="button-pink" onclick="changeLamp('pink.png')">Pink</button>
-            <button class="button-yellowgreen" onclick="changeLamp('yellowandgreen.png')">Yellow/Green</button>
-            <button class="button-electricblue" onclick="changeLamp('electricblue.png')">Electric Blue</button>
-            <button class="button-blacknwhite" onclick="changeLamp('blacknwhite.png')">Black and White</button>
-        </div>
-    </div>
-
-    <script>
-        function changeLamp(color) {
-            const lamp = document.getElementById('lamp');
-            lamp.src = color;
-        }
-
-        function showDescription() {
-            const description = document.getElementById('description');
-            description.style.display = 'block';
-            const descriptionText = "Inspired by James Turell and his usage of lighting and ambience to create a safe space, I thought it would be fun to create an interactive entry where colors can be switched and changed depending on the person's mood.";
-            let index = 0;
-
-            function typeDescription() {
-                if (index < descriptionText.length) {
-                    description.innerHTML += descriptionText.charAt(index);
-                    index++;
-                    setTimeout(typeDescription, 50); // Adjust the speed (milliseconds) here
-                }
+        @keyframes showHighlight {
+            0% {
+                opacity: 0;
             }
-
-            typeDescription();
+            100% {
+                opacity: 1;
+            }
         }
-    </script>
-    <div class="nextentry">
-        <ul style="color: rgb(255, 255, 255);">
-          <li><a style="color: rgb(255, 255, 255);" href="https://abbykalman.github.io/harmonic-collection/entry-8/" class="NextEntry">Next Entry</a></li>
-          <li><a style="color: rgb(255, 255, 255);"href="https://abbykalman.github.io/harmonic-collection/entry-3/entry-3.html">Welcome Home</a></li>
-        </ul>
-    </div>
+
+        .expand {
+            animation: expandText 4s forwards;
+        }
+
+        @keyframes expandText {
+            0% {
+                max-height: 0;
+                opacity: 0;
+            }
+            100% {
+                max-height: 200px;
+                opacity: 1;
+            }
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .custom-gradient {
+            background-image: radial-gradient(circle, #ffffff, #808080, #000000);
+        }
+
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        .refresh-button::after {
+          content:"—Pngtree—white refresh icon_4543883.png" alt="Refresh Icon">
+          color: white;
+      }
+  </style>
+</head>
+
+<body>
+  <div class="intro-text" id="intro-text"></div>
+  <div class="highlight" id="highlight-text"></div>
+
+  <div class="button-container">
+      <button class="circle-button" style="background-color: #ff0000;" onclick="addColor('#ff0000')"></button>
+      <button class="circle-button" style="background-color: #ffa500;" onclick="addColor('#ffa500')"></button>
+      <button class="circle-button" style="background-color: #ffff00;" onclick="addColor('#ffff00')"></button>
+      <button class="circle-button" style="background-color: #008000;" onclick="addColor('#008000')"></button>
+      <button class="circle-button" style="background-color: #0000ff;" onclick="addColor('#0000ff')"></button>
+      <button class="circle-button" style="background-color: #4b0082;" onclick="addColor('#4b0082')"></button>
+      <button class="circle-button" style="background-color: #8a2be2;" onclick="addColor('#8a2be2')"></button>
+      <button class="circle-button" style="background-color: #ffd1dc;" onclick="addColor('#ffd1dc')"></button> 
+      <button class="circle-button" style="background-color: #aaf0d1;" onclick="addColor('#aaf0d1')"></button> 
+      <button class="circle-button" style="background-color: #f7e7ce;" onclick="addColor('#f7e7ce')"></button> 
+    
+      <button class="circle-button" style="background-color: #ff6ec7;" onclick="addColor('#ff6ec7')"></button> 
+      <button class="circle-button" style="background-color: #39ff14;" onclick="addColor('#39ff14')"></button> <!-- Neon Green -->
+      <button class="circle-button" style="background-color: #00ffff;" onclick="addColor('#00ffff')"></button> <!-- Neon Cyan -->
+    
+      <button class="circle-button" style="background-color: #c0c0c0;" onclick="addColor('#c0c0c0')"></button> <!-- Neutral Gray -->
+      <button class="circle-button" style="background-color: #f5f5f5;" onclick="addColor('#f5f5f5')"></button> <!-- Neutral White -->
+      <button class="circle-button" style="background-color: #808080;" onclick="addColor('#808080')"></button> <!-- Neutral Dark Gray -->
+  </div>
+
+  <div class="color-bar" id="color-bar"></div>
+
+      <div class="refresh-button" onclick="resetBackground()">
+          <img src="—Pngtree—white refresh icon_4543883.png" alt="Refresh Icon">
+  </div>
+
+  <div class="color-dot" id="color-dot-1"></div>
+  <div class="color-dot" id="color-dot-2"></div>
+  <div class="color-dot" id="color-dot-3"></div>
+    
+    <script>
+      let selectedColors = [];
+      let introText = "Inspired by James Turrell's use of ambient lighting for the purpose of facilitating empathetic and human connected spaces, we have created an interactive entry where you, the user, can create and illuminate your own space depending on how you feel. Click three colors down below to create a radial gradient and sit in a dark room for the best illumination of the colors, similar to a Turrell exhibition.";
+      let highlightText = "And as always, we made this for you.";
+      let isFirstLoad = true; // Variable to determine if it's the first load
+
+      function typeText() {
+          const introDiv = document.getElementById('intro-text');
+          let index = 0;
+          const typing = setInterval(() => {
+              if (index < introText.length) {
+                  introDiv.textContent += introText[index];
+                  index++;
+              } else {
+                  clearInterval(typing);
+                  introDiv.classList.add('fade-out'); // Add fade-out class
+                  setTimeout(() => {
+                      introDiv.style.display = 'none';
+                      showHighlight();
+                  }, 2000);
+              }
+          }, 50);
+      }
+
+      function showHighlight() {
+          const highlightDiv = document.getElementById('highlight-text');
+          highlightDiv.innerHTML = highlightText;
+          highlightDiv.style.opacity = '1';
+          setTimeout(() => {
+              highlightDiv.classList.add('fade-out'); // Add fade-out class
+              setTimeout(() => {
+                  highlightDiv.style.display = 'none';
+                  showButtons();
+              }, 2000);
+          }, 3000);
+      }
+
+      function showButtons() {
+          const buttons = document.querySelector('.button-container');
+          const refreshButton = document.querySelector('.refresh-button');
+
+          buttons.style.opacity = '1';
+          buttons.style.left = '20px';
+          refreshButton.style.opacity = '1';
+          refreshButton.style.right = '20px';
+      }
+
+      function addColor(color) {
+          const colorBar = document.getElementById('color-bar');
+          const dot = document.getElementById(`color-dot-${selectedColors.length + 1}`); // Get the dot for the next color
+
+          if (selectedColors.length < 3) {
+              selectedColors.push(color);
+              dot.style.backgroundColor = color;
+              dot.style.display = 'block';
+
+      
+      if (selectedColors.length === 3) {
+          // This section is responsible for showing the color dots
+          colorBar.innerHTML = selectedColors.map(c => `<div class="selected-color" style="background-color: ${c}"></div>`).join('');
+          applyGradient(selectedColors);
+          fadeDots(); // This function fades out the dots
+      }
+  }
+}
+
+
+      function applyGradient(colors) {
+          const body = document.querySelector('body');
+          const gradient = `radial-gradient(circle, ${colors[0]}, ${colors[1]}, ${colors[2]})`;
+          body.style.backgroundImage = gradient;
+      }
+
+      function fadeDots() {
+          const dots = document.querySelectorAll('.color-dot');
+          dots.forEach(dot => {
+              setTimeout(() => {
+                  dot.style.opacity = '0';
+              }, 2000); // Adjust the duration as needed
+          });
+      }
+      function resetBackground() {
+          const body = document.querySelector('body');
+          body.style.backgroundImage = 'radial-gradient(circle, #ffffff, #808080, #000000)';
+          selectedColors = [];
+          document.getElementById('color-bar').innerHTML = '';
+          const dots = document.querySelectorAll('.color-dot');
+          dots.forEach(dot => {
+              dot.style.display = 'none';
+              dot.style.opacity = '1'; // Reset opacity for the dots
+          });
+      }
+
+      window.onload = function () {
+          typeText();
+          isFirstLoad = false; // Update the flag after initial load
+      }
+      document.addEventListener("visibilitychange", function () {
+          if (!document.hidden && !isFirstLoad) {
+              // If the page becomes visible and it's not the initial load, preserve the state
+              showButtons(); // Show the buttons if needed
+              applyGradient(selectedColors); // Apply the previous gradient if colors were selected
+              if (selectedColors.length === 3) {
+                  fadeDots(); // Fade the dots if three colors were selected
+              }
+          }
+      });
+  </script>
 </body>
+
 </html>
-
-
-
-
-
-
 

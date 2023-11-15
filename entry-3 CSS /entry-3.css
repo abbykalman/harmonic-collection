@@ -243,3 +243,31 @@ transition: transform 5s ease;
 	transform: translateY(450%);
 	transform: translateY(450%) translateX(150%); /* Move it to the left */
 }
+.entry-8-link {
+    background-color: rgb(255, 123, 0);
+    border-top: solid rgb(255, 255, 255) 4px;
+    padding: 10px;
+    width: 20%;
+    position: relative;
+    top: -5px; /* Adjust this value to position it under entry-5-link */
+    margin: 0 auto; /* Center the container horizontally */
+    color: #FFFFFF;
+    font-family: monospace;
+    font-size: 18px;
+    text-align: center;
+    transform: translateY(890%) translateX(-150%); /* Move it to the left */
+}
+.entry-9-link {
+	background-color: rgb(255, 123, 0);
+    border-top: solid rgb(255, 255, 255) 4px;
+    padding: 10px;
+    width: 20%;
+    position: relative;
+    top: 470px; /* Adjust this value to position it under entry-5-link */
+    margin: 0 auto; /* Center the container horizontally */
+    color: #FFFFFF;
+    font-family: monospace;
+    font-size: 18px;
+    text-align: center;
+    transform: translateY(890%) translateX(-5%); /* Move it to the left */
+}
