@@ -2,7 +2,7 @@ body {
     background-image: radial-gradient(circle, #00aeff, #dad996, rgb(158, 3, 255));
     background-size: 400%;
     animation: bg-animation 9s infinite;
-    width: 1000px;
+    width: 1300px;
     margin: 0 auto; /* Center the content */
     text-align: center; /* Center the text */
 }
@@ -32,7 +32,7 @@ h2:hover {
     transition: transform 0.3s; /* Add smooth transition */
 }
 .header {
-    font-family: monospace;
+    font-family: futura;
     color: rgb(158, 46, 65);
 }
 .header h1{
@@ -40,10 +40,12 @@ h2:hover {
 }
 p {
     color: rgb(158, 46, 65);
-    font-family: monospace;
+    font-family: futura;
     font-size: 20px;
 }
 strong {
     border-radius: 50%; 
 	border-style: solid;
+    font-family: allegro;
+    font-size: 30px;
 }

@@ -1,7 +1,7 @@
 
 
 body {
-  background-image: radial-gradient(circle, #55d593, #cce749, rgb(236, 87, 41));
+  background-image: radial-gradient(circle, #d4c03e, #cecba2, rgba(157, 120, 109, 0.606));
   background-size: 400%;
   animation: bg-animation 9s infinite;
 }
@@ -15,14 +15,18 @@ body {
   }
 }
 
+
+
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2em;
+  font-family: Allegro;
+  font-size: 4rem;
   color: rgb(182, 162, 8);
-  border: dashed 4px;
-border-color: #d4850f;
-width: fit-content;
+  border-color: #d4850f;
+  width: fit-content;
+  margin: 0 auto; /* Added margin to center horizontally */
+  text-align: center; 
 }
+
 
 body h1:hover {
   color: #f2ff00; 
