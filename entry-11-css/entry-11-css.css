@@ -1,0 +1,72 @@
+:root {
+    --gradient-color: radial-gradient(circle, #ff5733, #ffcc00, #fffb00);
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--gradient-color);
+    background-size: 400%; /* Adjust as needed for the animated effect */
+    animation: bg-animation 9s infinite;
+    transition: background 1s ease-in-out;
+  }
+  @keyframes bg-animation {
+    0% {
+      background-position: left;
+    }
+    100% {
+      background-position: right;
+    }
+  }
+
+  .journal-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cover-page {
+    text-align: center;
+    padding-top: 50px; /* Adjust the top padding as needed */
+  }
+  
+  .intro-text {
+    font-family: 'Allegro', sans-serif;
+    color: white;
+    font-size: 36px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 20px; /* Adjust the top position */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+    
+  .intro-text.fade-in {
+    opacity: 1;
+  }
+  .journal-content {
+    display: flex;
+    height: calc(100vh - 100px); /* Adjust the height of the content area */
+  }
+  
+  .journal-page {
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    background-color: transparent; /* Set text container background to transparent */
+  }
+  .journal-page.active {
+    display: block;
+  }
+  
+  .page-content {
+    background-color: transparent; /* Set text content background to transparent */
+    border: none; /* Remove border if present */
+  }
