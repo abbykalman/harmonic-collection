@@ -1,74 +1,131 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Home Page</title>
-		<link href="../entry-3 CSS /entry-3.css" rel="stylesheet">
-	</head>
-	<body>
-		<div class="box">
-			<h1>Welcome Home:</h1>
-			<h2>We made this for you.</h2>
-		</div>
-		<br>
-		<p>
-				A harmonic collection on the theme of <strong>empathy</strong>; celebrating love and human connection.
-		</p>
-		<hr />
-		<br>
-		<div class="container">
-		<h3>
-			A Note From our Creators:
-		</h3>
-	</div>
-	<div class="group">
-<h4> 
-	We created this site as a safe space to discuss what the impacts of empathy and the feelings of mutuality have on the human experience. The goal here is for a sense of unity; for people to understand that we all experience similar things, share similar memories, and to investigate unique ways in which we as humans connect symbiotically. With viewing each entry, we hope that you feel a sense of empathy to the experiences your viewing, reflect on your own memories and emotions of empathy, and to become aware in your human experience. Welcome home, <strong>we made this for you</strong>.
-<h4>
-</div>
-<div class="image1entry1">
-    <img src="entry image for mother interview.png" alt="Description of the image">
-</div>
-<div class="image1entry2">
-	<img src="entry image for spotify.png" alt="Description of the image">
-</div>
-<div class="image1entry3">
-	<img src="couple.png" alt="Description of the image">
-</div>
-<div class="image1entry4">
-	<img src="entry for love letters.png" alt="Description of the image">
-</div>
-<div class="image1entry5">
-	<img src="squad.png" alt="Description of the image">
-</div>
-<div class="entry1 link">
-		<a href="https://abbykalman.github.io/harmonic-collection/entry-1">A Motherly Relationship in Relation to Empathy: An Interview with my Mom</a>
-	</div>
-	<div class="entry-2 link">
-			<a href="https://abbykalman.github.io/harmonic-collection/entry-2/">Here's a Playlist I Made for You...</a>
-	</div>
-	<div class="entry-4 link">
-		<a href="https://abbykalman.github.io/harmonic-collection/entry-4/">Messages of Admiration</a>
-</div>
-<div class="entry-5-link">
-	<a href="https://abbykalman.github.io/harmonic-collection/entry-5/">Pictures involving Empathy</a>
-</div>
-<div class="entry-6-link">
-	<a href="https://abbykalman.github.io/harmonic-collection/entry-6/">Roommate Watch Night: A Collective Experience</a>
-</div>
-<div class="entry-7-link">
-	<a href="https://abbykalman.github.io/harmonic-collection/entry-7/index.html">Embracing Illumination: Crafting Empathetic Environments</a>
-</div>
-<div class="entry-8-link">
-	<a href="https://abbykalman.github.io/harmonic-collection/entry-8/">Quotes we Made for You - Compiled by a Journal and our Personal Favorites</a>
-</div>
-<div class="entry-9-link">
-	<a href="https://abbykalman.github.io/harmonic-collection/entry-9/">Empathy Bot</a>
-</div>
-<div class="entry-10-link">
-	<a href="https://abbykalman.github.io/harmonic-collection/entry-10/">Empathy Bot</a>
-</div>
-	</body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radial Gradient Circles</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #efd69a;
+      background-image: radial-gradient(circle, #f15a38, #e6de0d);
+      background-size: 400%;
+      animation: bg-animation 9s infinite;
+    }
+
+    @keyframes bg-animation {
+      0% {
+        background-position: left;
+      }
+      70% {
+        background-position: right;
+      }
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 20px;
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .circle {
+      grid-column: span 3 ;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Futura, sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      position: relative;
+      background-size: 400%;
+      animation: circle-bg-animation 9s infinite;
+      transition: transform 0.3s, width 0.3s, height 0.3s;
+    }
+
+    @keyframes circle-bg-animation {
+      0% {
+        background-position: left;
+      }
+      100% {
+        background-position: right;
+      }
+    }
+
+    /* Define the styles for each circle */
+    .circle:nth-child(1) {
+      background-image: radial-gradient(circle, #00aeff, #dad996, rgb(158, 3, 255));
+    }
+    .circle:nth-child(2) {
+		background-image: radial-gradient(circle, #1c12cd, #960de6, #e249b7);
+    }
+    .circle:nth-child(3) {
+		background-image: radial-gradient(circle, #225505, #10df08, rgb(226, 255, 3))
+    }
+    .circle:nth-child(4) {
+		background-image: radial-gradient(circle, #d4c03e, #cecba2, rgba(157, 120, 109, 0.606));
+    }
+    .circle:nth-child(5) {
+		background-image: radial-gradient(circle, #0a0555, #560a03, rgb(12, 101, 6));
+    }
+   
+	.circle:nth-child(6){
+		background-image: radial-gradient(circle, #ffffff, #808080, #000000);
+	}
+
+	.circle:nth-child(7){
+		background-image: radial-gradient(circle, #545408, #719c54, rgb(28, 128, 105));
+	}
+    .circle:hover {
+      transform: scale(1.2);
+    }
+
+    /* Bounce and slant effect for numbers on hover */
+    .circle:hover::before {
+      content: attr(data-number);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-5deg);
+      animation: bounce-text 0.5s ease infinite alternate;
+    }
+
+    @keyframes bounce-text {
+      0% {
+        transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(-5deg) scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="circle" data-number="1" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-1/'"></div>
+    <div class="circle" data-number="2" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-2/'"></div>
+    <div class="circle" data-number="3" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-4/'"></div>
+    <!-- Add the remaining circle elements -->
+	<div class="circle" data-number="4" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-5/'"></div>
+	<div class="circle" data-number="5" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-6/'"></div>
+	<div class="circle" data-number="6" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-7/'"></div>
+	<div class="circle" data-number="7" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-8/'"></div>
+	<div class="circle" data-number="8" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-9/'"></div>
+	<div class="circle" data-number="9" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-10/'"></div>
+	<div class="circle" data-number="10" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-12/'"></div>
+	<div class="circle" data-number="11" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-11/'"></div>
+  </div>
+</body>
 </html>
 
