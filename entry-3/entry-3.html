@@ -3,43 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Radial Gradient Circles</title>
+  <title>Home Page</title>
   <style>
-    body {
+   body {
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       margin: 0;
-      background-color: #efd69a;
-      background-image: radial-gradient(circle, #f15a38, #e6de0d);
+      background: radial-gradient(circle, #ff5f38, #fdb813, #ff0000);
       background-size: 400%;
-      animation: bg-animation 9s infinite;
+      font-family: Futura, sans-serif;
+      color: white;
+      overflow: auto; /* Allowing scrolling */
+      animation: backgroundMovement 20s linear infinite;
     }
 
-    @keyframes bg-animation {
+    @keyframes backgroundMovement {
       0% {
-        background-position: left;
+        background-position: 0% 50%;
       }
-      70% {
-        background-position: right;
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
       }
     }
+   
+    .welcome-text {
+      text-align: center;
+      font-family: Allegro, sans-serif;
+      font-size: 3rem;
+      opacity: 0;
+      position: absolute;
+      top: 50%; /* Initial top position in the middle */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 1s ease-in-out, font-size 1s ease-in-out, top 1s ease-in-out;
+    }
 
+  
+    .grid-visible {
+      opacity: 1;
+      visibility: visible;
+    }
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 0;
       padding: 20px;
       justify-content: center;
       align-items: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out, top 1s ease-in-out;
+      position: absolute;
+      top: 500px;; /* Initial top position below the viewport */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
     }
-
-    .circle {
-      grid-column: span 3 ;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
+ 
+    .square {
+      width: 280px;
+      height: calc(50vh - 20px);
+      border-radius: 0px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -50,11 +79,11 @@
       cursor: pointer;
       position: relative;
       background-size: 400%;
-      animation: circle-bg-animation 9s infinite;
-      transition: transform 0.3s, width 0.3s, height 0.3s;
+      animation: square-bg-animation 9s infinite;
+      transition: transform 0.3s;
     }
 
-    @keyframes circle-bg-animation {
+    @keyframes square-bg-animation {
       0% {
         background-position: left;
       }
@@ -63,36 +92,80 @@
       }
     }
 
-    /* Define the styles for each circle */
-    .circle:nth-child(1) {
+    .about-button {
+      opacity: 0;
+      position: absolute;
+      top: 18%; /* Updated position */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Futura, sans-serif;
+      font-size: 30px;
+      color: #ffffff; /* Burnt orange text color */
+      border: 3px dotted #62350b; /* 3px dotted border */
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1;
+      width: 200px; /* Set width to make it rectangular */
+      text-align: center; /* Center-align text */
+      font-style: italic; /* Italicized text */
+      background-color: transparent;
+    }
+
+    .about-paragraph {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      text-align: justify;
+      font-family: Futura, sans-serif;
+      font-size: 18px;
+      color: white;
+      z-index: 1;
+    }
+         .entry-number {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      font-family: Allegro, sans-serif;
+      font-size: 15px;
+      color: white;
+    }
+    .square:nth-child(1) {
       background-image: radial-gradient(circle, #00aeff, #dad996, rgb(158, 3, 255));
     }
-    .circle:nth-child(2) {
-		background-image: radial-gradient(circle, #1c12cd, #960de6, #e249b7);
+    .square:nth-child(2) {
+      background-image: radial-gradient(circle, #1c12cd, #960de6, #e249b7);
     }
-    .circle:nth-child(3) {
-		background-image: radial-gradient(circle, #225505, #10df08, rgb(226, 255, 3))
+    .square:nth-child(3) {
+      background-image: radial-gradient(circle, #225505, #10df08, rgb(226, 255, 3));
     }
-    .circle:nth-child(4) {
-		background-image: radial-gradient(circle, #d4c03e, #cecba2, rgba(157, 120, 109, 0.606));
+    .square:nth-child(4) {
+      background-image: radial-gradient(circle, #d4c03e, #cecba2, rgba(157, 120, 109, 0.606));
     }
-    .circle:nth-child(5) {
-		background-image: radial-gradient(circle, #0a0555, #560a03, rgb(12, 101, 6));
+    .square:nth-child(5) {
+      background-image: radial-gradient(circle, #0a0555, #560a03, rgb(12, 101, 6));
     }
-   
-	.circle:nth-child(6){
-		background-image: radial-gradient(circle, #ffffff, #808080, #000000);
-	}
+    .square:nth-child(6) {
+      background-image: radial-gradient(circle, #ffffff, #808080, #000000);
+    }
+    .square:nth-child(7) {
+      background-image: radial-gradient(circle, #545408, #719c54, rgb(28, 128, 105));
+    }
+    .square:nth-child(8) {
+      background-image: radial-gradient(circle, #545408, #719c54, rgb(28, 128, 105));
+    }
+    .square:nth-child(9) {
+      background-image: radial-gradient(circle, #ff009d, #13ebce, rgb(238, 248, 128));
+    }
+    .square:nth-child(10) {
+      background-image: radial-gradient(circle, #00ffe1, #ff00ff, #0026ff);
+    }
 
-	.circle:nth-child(7){
-		background-image: radial-gradient(circle, #545408, #719c54, rgb(28, 128, 105));
-	}
-    .circle:hover {
-      transform: scale(1.2);
-    }
 
     /* Bounce and slant effect for numbers on hover */
-    .circle:hover::before {
+    .square:hover::before {
       content: attr(data-number);
       position: absolute;
       top: 50%;
@@ -109,23 +182,83 @@
         transform: translate(-50%, -50%) rotate(-5deg) scale(1.1);
       }
     }
+
+
   </style>
 </head>
 <body>
-  <div class="grid-container">
-    <div class="circle" data-number="1" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-1/'"></div>
-    <div class="circle" data-number="2" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-2/'"></div>
-    <div class="circle" data-number="3" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-4/'"></div>
-    <!-- Add the remaining circle elements -->
-	<div class="circle" data-number="4" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-5/'"></div>
-	<div class="circle" data-number="5" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-6/'"></div>
-	<div class="circle" data-number="6" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-7/'"></div>
-	<div class="circle" data-number="7" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-8/'"></div>
-	<div class="circle" data-number="8" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-9/'"></div>
-	<div class="circle" data-number="9" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-10/'"></div>
-	<div class="circle" data-number="10" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-12/'"></div>
-	<div class="circle" data-number="11" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-11/'"></div>
+  <div class="welcome-text">
+    <p></p>
   </div>
+  <div class="about-button" onclick="toggleAbout()">About</div>
+  <div class="about-paragraph" id="aboutParagraph">
+    This website has been meticulously crafted to explore the profound impact of moments steeped in empathy and human connection on the human experience. Additionally, we have attempted to unravel the deep associations between these experiences with colors, and to understand how colors possess the incredible ability to evoke emotions. At the heart of this platform lies a singular goal – to foster unity and comprehension. We seek to illuminate the universal truth that we all encounter analogous feelings, share reminiscent memories, and are interconnected through the fundamental concepts of emotion and memory, subconsciously associating our experiences with colors. Each entry serves as a vessel, inviting viewers on a journey where empathy and human connection become tangible, sometimes with help of the nuanced interplay of colors and memories/experiences described. Welcome home, we made this for you.
+  </div>
+
+  <div class="grid-container">
+    <div class="square" data-number="001" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-1/'"></div> 
+    <div class="square" data-number="002" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-2/'"></div>
+      <div class="square" data-number="003" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-4/'"></div>
+      <div class="square" data-number="004" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-5/'"></div>
+      <div class="square" data-number="005" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-6/'"></div>
+      <div class="square" data-number="006" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-7/'"></div>
+      <div class="square" data-number="007" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-8/'"></div>
+      <div class="square" data-number="008" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-9/'"></div>
+      <div class="square" data-number="009" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-10/'"></div>
+      <div class="square" data-number="010" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-11/'"></div>
+  </div>
+  <script>
+    // JavaScript to toggle About paragraph visibility
+    function toggleAbout() {
+      const aboutParagraph = document.getElementById('aboutParagraph');
+      if (aboutParagraph.style.display === 'block') {
+        aboutParagraph.style.display = 'none';
+      } else {
+        aboutParagraph.style.display = 'block';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const welcomeText = document.querySelector('.welcome-text');
+      const gridContainer = document.querySelector('.grid-container');
+      const aboutButton = document.createElement('button');
+      aboutButton.className = 'about-button';
+      aboutButton.innerHTML = 'About';
+      aboutButton.onclick = function() {
+        toggleAbout();
+      };
+
+      const welcomeTextContent = "Welcome Home: We made this for you.";
+      let index = 0;
+
+      function typeWelcomeText() {
+        if (index < welcomeTextContent.length) {
+          welcomeText.querySelector('p').textContent += welcomeTextContent.charAt(index);
+          index++;
+          setTimeout(typeWelcomeText, 100);
+        } else {
+          welcomeText.style.opacity = '1';
+          welcomeText.style.fontSize = '3rem';
+          welcomeText.style.top = '10%'; /* Move text to top center */
+          
+          // Transition grid-container into view
+          gridContainer.style.opacity = '1';
+          gridContainer.style.visibility = 'visible';
+          gridContainer.style.top = '70%'; /* Adjusted grid top position below text */
+
+          // Append the About button to the body and fade it in
+          document.body.appendChild(aboutButton);
+          setTimeout(() => {
+            aboutButton.style.opacity = '1';
+          }, 500); // Adjust timing for the button to fade in
+        }
+      }
+
+      setTimeout(function() {
+        welcomeText.style.opacity = '1';
+        typeWelcomeText();
+      }, 0); // Modified timing
+    });
+  </script>
 </body>
 </html>
-

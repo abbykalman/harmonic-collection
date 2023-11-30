@@ -1,18 +1,4 @@
-body {
-	background-color: #efd69a;
-	background-image: radial-gradient(circle, #f15a38, #e6de0d);
-	background-size: 400%;
-	animation: bg-animation 9s infinite;
-  }
-  
-  @keyframes bg-animation {
-	0% {
-	  background-position: left;
-	}
-	70% {
-	  background-position: right;
-	}
-  }
+
   
   /* Define the styles for each circle */
   .circle:nth-child(1) {
