@@ -110,7 +110,13 @@
       font-style: italic; /* Italicized text */
       background-color: transparent;
     }
-
+    .about-paragraph strong {
+      -webkit-text-stroke: 1px white; /* Text stroke for webkit browsers */
+      text-stroke: 1px white; /* Text stroke for other browsers */
+      border-radius: 50%; /* Make the outline a circle */
+      padding: 5px; /* Adjust the padding */
+      display: inline-block;
+    }
     .about-paragraph {
       display: none;
       position: absolute;
@@ -123,6 +129,7 @@
       font-size: 18px;
       color: white;
       z-index: 1;
+      background-color: #ff5500;
     }
          .entry-number {
       position: absolute;
@@ -173,6 +180,7 @@
       transform: translate(-50%, -50%) rotate(-5deg);
       animation: bounce-text 0.5s ease infinite alternate;
     }
+ 
 
     @keyframes bounce-text {
       0% {
@@ -192,7 +200,7 @@
   </div>
   <div class="about-button" onclick="toggleAbout()">About</div>
   <div class="about-paragraph" id="aboutParagraph">
-    This website has been meticulously crafted to explore the profound impact of moments steeped in empathy and human connection on the human experience. Additionally, we have attempted to unravel the deep associations between these experiences with colors, and to understand how colors possess the incredible ability to evoke emotions. At the heart of this platform lies a singular goal – to foster unity and comprehension. We seek to illuminate the universal truth that we all encounter analogous feelings, share reminiscent memories, and are interconnected through the fundamental concepts of emotion and memory, subconsciously associating our experiences with colors. Each entry serves as a vessel, inviting viewers on a journey where empathy and human connection become tangible, sometimes with help of the nuanced interplay of colors and memories/experiences described. Welcome home, we made this for you.
+    This website has been meticulously crafted to explore the profound impact of moments steeped in empathy and human connection on the human experience. Additionally, we have attempted to unravel the deep associations between these experiences with colors, and to understand how colors possess the incredible ability to evoke emotions. At the heart of this platform lies a singular goal – to foster unity and comprehension. We seek to illuminate the universal truth that we all encounter analogous feelings, share reminiscent memories, and are interconnected through the fundamental concepts of emotion and memory, subconsciously associating our experiences with colors. Each entry serves as a vessel, inviting viewers on a journey where empathy and human connection become tangible, sometimes with help of the nuanced interplay of colors and memories/experiences described. <strong>Welcome home, we made this for you.</strong>
   </div>
 
   <div class="grid-container">
