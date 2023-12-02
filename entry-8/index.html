@@ -2,155 +2,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quote App</title>
-<style>
-  body {
-    font-family: monospace;
-    margin: 0;
-    background-color: #f0f0f0;
-    overflow-y: scroll; /* Added to allow scrolling */
-  }
+  <meta charset="UTF-8">
+  <title>Aura Lesson</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      background: radial-gradient(circle, #ff00ff, #ffcc00, #ffff00, #00ff00, #00ffcc, #00ffff, #0000ff, #ff00ff);
+      background-size: 200%; /* Initial background size */
+      background-position: center; /* Set initial background position to center */
+      animation: shimmer 5s ease-in-out infinite alternate, moveBackground 10s linear infinite;
+    }
 
-  .title-container {
-    font-family: monospace;
-    font-size: 24px;
-    text-align: center;
-    border: 1px dotted #fff;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: transparent;
-    color: #fff;
-    display: inline-block;
-  }
-
-  .title-container:hover {
-    background-color: #2ecc71; /* Green hover effect */
-  }
-
-  .button {
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, #3498db, #2980b9);
-    border: none;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    animation: floatAnimation 3s infinite alternate;
-  }
-
-  @keyframes floatAnimation {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
-  }
-
-  .button:nth-child(2) { animation-duration: 3.5s; }
-  .button:nth-child(3) { animation-duration: 4s; }
-  .button:nth-child(4) { animation-duration: 3.2s; }
-  .button:nth-child(5) { animation-duration: 3.8s; }
-  .button:nth-child(6) { animation-duration: 4.3s; }
-  .button:nth-child(7) { animation-duration: 3.7s; }
-  .button:nth-child(8) { animation-duration: 3.9s; }
-
-  .button-container {
-    display: none;
-    width: 300px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 1px dotted #000;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    display: inline-block;
-  }
-
-  .text {
-    font-family: monospace;
-    margin-top: 10px;
-  }
-
-  .text:hover {
-    color: #2ecc71; /* Green hover effect on text */
-  }
-</style>
-</head>
-<body>
-  <div class="title-container">Quotes we Made for You - Compiled by a Journal and our Personal Favorites</div>
-  <button class="button" onclick="toggleQuote('quote1')" style="top: 10%; left: 10%;">A quote to help with stress</button>
-  <button class="button" onclick="toggleQuote('quote2')" style="top: 30%; left: 60%;">A quote to help with self worth</button>
-  <button class="button" onclick="toggleQuote('quote3')" style="top: 70%; left: 80%;">A quote to make you happy</button>
-  <button class="button" onclick="toggleQuote('quote4')" style="top: 50%; left: 30%;">A quote to keep you going</button>
-  <button class="button" onclick="toggleQuote('quote5')" style="top: 80%; left: 10%;">A quote to remind you you're not alone</button>
-  <button class="button" onclick="toggleQuote('quote6')" style="top: 110%; left: 70%;">A quote so you remember you're loved</button>
-  <button class="button" onclick="toggleQuote('quote7')" style="top: 130%; left: 90%;">A quote that is full of tough love</button>
-  <button class="button" onclick="toggleQuote('quote8')" style="top: 160%; left: 80%;">A quote from us</button>
-  
-  <div class="button-container" id="quote1"></div>
-  <div class="button-container" id="quote2"></div>
-  <div class="button-container" id="quote3"></div>
-  <div class="button-container" id="quote4"></div>
-  <div class="button-container" id="quote5"></div>
-  <div class="button-container" id="quote6"></div>
-  <div class="button-container" id="quote7"></div>
-  <div class="button-container" id="quote8"></div>
-  
-  <script>
-    function toggleQuote(quoteId) {
-      var container = document.getElementById(quoteId);
-      if (container.style.display === 'block') {
-        container.style.display = 'none';
-      } else {
-        container.innerHTML = `
-          <div class="title">Quotes we Made for You - Compiled by a Journal and our Personal Favorites</div>
-          <div class="text">${getQuoteText(quoteId)}</div>
-        `;
-        var allContainers = document.querySelectorAll('.button-container');
-        allContainers.forEach(function(item) {
-          if (item.id !== quoteId) {
-            item.style.display = 'none';
-          }
-        });
-        container.style.display = 'block';
+    @keyframes shimmer {
+      0% {
+        background-size: 100%;
+      }
+      100% {
+        background-size: 200%;
       }
     }
 
-    function getQuoteText(quoteId) {
-      switch (quoteId) {
-        case 'quote1':
-          return "Sometimes our brains can be like a runaway train and you have to pull it back into the station. Allow the feelings to come and feel them, but understand what is based in reality and what is not.";
-        case 'quote2':
-          return "I hate to think back on old versions of myself and be like “I need to be more like her, she was so free and genuine” but a lot of the times it wasn’t totally true. I think what I get wrong is I don’t need to go back in time and relive that person, but relive the idea of just focusing on what I liked about that person and harnessing it. You cannot change a person, only better one.";
-        case 'quote3':
-          return "To feel pleasure and enjoyment is to feel fulfillment in what we have and what we value as people. To search for something and constantly strive for everything is proof of being unsatisfied at a deeper level.";
-        case 'quote4':
-          return "You have all the bones to be a great designer it just will take time to learn how to execute your visions the way u see it in ur head, but I know you can do it.";
-        case 'quote5':
-          return "Just know you are thought about and people care. Everyone has their own expectations and ways of how they show it and reciprocate it.";
-        case 'quote6':
-          return "Just know you are thought about and people care. Everyone has their own expectations and ways of how they show it and reciprocate it.";
-        case 'quote7':
-          return "There will be fluctuations in friendships and sometimes people will like you a lot and sometimes they won’t but that’s the beauty of life.";
-        case 'quote8':
-          return "Your quote text for 'A quote from us'";
+    @keyframes moveBackground {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+
+    .aura-buttons button {
+      animation: shimmerButton 5s ease-in-out infinite alternate;
+    }
+
+    .title {
+      animation: shimmerTitle 5s ease-in-out infinite alternate;
+    }
+
+    .aura-description {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-family: 'Futura Bold', sans-serif;
+      color: white;
+      font-size: 24px;
+    }
+
+    @keyframes shimmerButton {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    @keyframes shimmerTitle {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="title">An Aura Lesson We Made For You</h1>
+  </header>
+  <main class="main">
+    <div class="aura-buttons">
+      <button class="red" onclick="changeAura('red')"></button>
+      <button class="orange" onclick="changeAura('orange')"></button>
+      <button class="yellow" onclick="changeAura('yellow')"></button>
+      <button class="pink" onclick="changeAura('pink')"></button>
+      <button class="green" onclick="changeAura('green')"></button>
+      <button class="indigo" onclick="changeAura('indigo')"></button>
+      <button class="blue" onclick="changeAura('blue')"></button>
+      <button class="purple" onclick="changeAura('purple')"></button>
+      <button class="white" onclick="changeAura('white')"></button>
+    </div>
+    <div class="aura-description" id="aura-description">
+      <p>Auras are the manifestation of our connection to the spiritual and emotional realms, rooted in the concept of the seven chakras within our bodies. Each layer of the aura reflects our current emotional state, radiating energies that intertwine with our being. This essence can act as a magnetic force, drawing others towards us. When someone is in a positive emotional space, their aura exudes this energy, subtly influencing those around them. It's like an unspoken language—people can instinctively pick up on these positive vibrations, fostering connections and resonating with the harmony and balance within oneself. Click on the colors below to find out about what each aura color means, and how that relates to human connection.</p>
+    </div>
+  </main>
+
+  <script>
+
+  function changeAura(color) {
+  const auraDescription = document.getElementById('aura-description');
+  auraDescription.innerHTML = getAuraMeaning(color);
+
+  let gradient;
+  switch (color) {
+    case 'red':
+      gradient = 'radial-gradient(circle, white, #ff0000, #cc0000, #990000, #660000, #330000)';
+      break;
+    case 'orange':
+      gradient = 'radial-gradient(circle, white, #ff6600, #e65c00, #cc5200, #993d00, #662900)';
+      break;
+    case 'yellow':
+      gradient = 'radial-gradient(circle, white, #ffff00, #e6e600, #cccc00, #999900, #666600)';
+      break;
+    case 'pink':
+      gradient = 'radial-gradient(circle, white, #ff00ff, #cc00cc, #990099, #660066, #330033)';
+      break;
+    case 'green':
+      gradient = 'radial-gradient(circle, white, #009933, #00802b, #006622, #004d1a, #003311)';
+      break;
+    case 'indigo':
+      gradient = 'radial-gradient(circle, white, #330099, #2d008c, #270080, #1a0053, #0d0026)';
+      break;
+    case 'blue':
+      gradient = 'radial-gradient(circle, white, #000099, #000088, #000077, #000055, #000033)';
+      break;
+    case 'purple':
+      gradient = 'radial-gradient(circle, white, #990099, #800080, #660066, #4d004d, #330033)';
+      break;
+    case 'white':
+      gradient = 'radial-gradient(circle, white, #000000, #1a1a1a, #333333, #4d4d4d, #666666)';
+      break;
+    default:
+      gradient = 'radial-gradient(circle, red, orange, yellow, pink, green, indigo, blue, purple, white)';
+  }
+
+  document.body.style.background = gradient;
+}
+
+    function getAuraMeaning(color) {
+      switch (color) {
+        case 'red':
+          return "Red aura promotes vitality, motivation, and courage. When you are in bright red aura you are physically active, have strong leadership and assertive power. You may have intense and fiery temperament.";
+        case 'orange':
+          return "Orange aura represents creativity, enthusiasm, and warmth.";
+
+        // Add cases for other colors
+
         default:
-          return "";
+          return "Select an aura color to learn more about its meaning.";
       }
     }
   </script>

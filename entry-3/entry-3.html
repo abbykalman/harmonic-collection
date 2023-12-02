@@ -11,23 +11,21 @@
       align-items: center;
       min-height: 100vh;
       margin: 0;
-      background: radial-gradient(circle, #ff5f38, #fdb813, #ff0000);
-      background-size: 400%;
+      background: radial-gradient(circle, red, orange, yellow, pink, green, indigo, blue, purple, white);
       font-family: Futura, sans-serif;
       color: white;
       overflow: auto; /* Allowing scrolling */
-      animation: backgroundMovement 20s linear infinite;
+      background-size: 120%; /* Initial background size */
+      background-position: center; /* Set initial background position to center */
+      transition: background-size 0.2s ease-out;
+      animation: bg-animation 10s infinite alternate;
     }
-
-    @keyframes backgroundMovement {
+    @keyframes bg-animation {
       0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
+        background-size: 90%;
       }
       100% {
-        background-position: 0% 50%;
+        background-size: 1000%;
       }
     }
    
@@ -158,16 +156,16 @@
     <p></p>
   </div>
   <div class="grid-container">
-    <div class="square" data-number="001" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-1/'"></div> 
-    <div class="square" data-number="002" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-2/'"></div>
-    <div class="square" data-number="003" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-4/'"></div>
-    <div class="square" data-number="004" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-5/'"></div>
-    <div class="square" data-number="005" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-6/'"></div>
-    <div class="square" data-number="006" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-7/'"></div>
-    <div class="square" data-number="007" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-8/'"></div>
-    <div class="square" data-number="008" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-9/'"></div>
-    <div class="square" data-number="009" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-10/'"></div>
-    <div class="square" data-number="010" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-11/'"></div>
+    <div class="square" data-number="1" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-1/'"></div> 
+    <div class="square" data-number="2" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-2/'"></div>
+    <div class="square" data-number="3" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-4/'"></div>
+    <div class="square" data-number="4" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-5/'"></div>
+    <div class="square" data-number="5" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-6/'"></div>
+    <div class="square" data-number="6" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-7/'"></div>
+    <div class="square" data-number="7" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-8/'"></div>
+    <div class="square" data-number="8" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-9/'"></div>
+    <div class="square" data-number="9" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-10/'"></div>
+    <div class="square" data-number="10" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-11/'"></div>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
