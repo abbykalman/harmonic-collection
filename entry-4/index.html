@@ -5,98 +5,95 @@
     <title>I Love You Because</title>
     <link href="../entry-4-css/entry4css.css" rel="stylesheet">
     <script>
-        function typeMessage(messageElement, message) {
-            var index = 0;
-            var interval = setInterval(function() {
-                messageElement.innerHTML += message[index];
-                index++;
-                if (index === message.length) {
-                    clearInterval(interval);
-                    messageElement.onclick = function() {
-                        untypeMessage(messageElement, message);
-                    };
-                }
-            }, 100);
-        }
+  function toggleMessage(element) {
+    var message = element.getAttribute('data-text');
+    if (!element.classList.contains('typing')) {
+        typeMessage(element, message);
+        element.classList.add('typing');
+    } else {
+        untypeMessage(element, message);
+        element.classList.remove('typing');
+    }
+}
 
-        function untypeMessage(messageElement, message) {
-            var index = message.length - 1;
-            var interval = setInterval(function() {
-                messageElement.innerHTML = messageElement.innerHTML.slice(0, -1);
-                index--;
-                if (index < 0) {
-                    clearInterval(interval);
-                    messageElement.onclick = function() {
-                        typeMessage(messageElement, message);
-                    };
-                }
-            }, 100);
+function typeMessage(messageElement, message) {
+    var index = 0;
+    var interval = setInterval(function() {
+        messageElement.innerHTML += message[index];
+        index++;
+        if (index === message.length) {
+            clearInterval(interval);
         }
+    }, 100);
+}
+
+function untypeMessage(messageElement, message) {
+    var index = message.length - 1;
+    var interval = setInterval(function() {
+        messageElement.innerHTML = messageElement.innerHTML.slice(0, -1);
+        index--;
+        if (index < 0) {
+            clearInterval(interval);
+        }
+    }, 100);
+}
+
     </script>
 </head>
-
 <body>
-    <div class="title">
-        <h1>Messages of Admiration</h1>
-        <h3>Click on the Dots!</h3>
-    </div>
-    <div class="message-container">
-        <div class="box"></div>
-        <div class="message sent" onclick="typeMessage(this, 'it\'s okay and i\'m so happy you texted me because I love you')"></div>
-        <div class="message received" onclick="typeMessage(this, 'I love you the most ever')"></div>
-        <div class="message sent" onclick="typeMessage(this, 'forever and ever girl')"></div>
-    </div>
-    <div class="message-container-2">
-        <div class="box"></div>
-        <div class="message received" onclick="typeMessage(this, 'Thinking of you all the time and I will make lots of progress knowing you are doing well and thinking of me. Love you much xo. ')"></div>
-        <div class="message sent" onclick="typeMessage(this, 'typing... ')"></div>
-    </div>
-    <div class="message-container-3">
-        <div class="box"></div>
-        <div class="message sent" onclick="typeMessage(this, 'i know you don\'t have your phone but i miss you! thinking of you')"></div>
-        <div class="message sent" onclick="typeMessage(this, 'i\'m excited to hear about this experience')"></div>
-        <div class="message sent" onclick="typeMessage(this, 'u are amazing me w this')"></div>
-        <div class="message received" onclick="typeMessage(this, 'typing...')"></div>
-    </div>
+    <a href="https://abbykalman.github.io/harmonic-collection/entry-3/entry-3.html" class="home-link">
+        <img src="green.png" alt="Home" class="home-icon">
+    </a>
+
+    <div class="grid-container">
+        <div class="message-container">
+            <h1>Messages of Admiration</h1>
+            <h3>Click on the Dots!</h3>
+        </div>
    
-    <div class="message-container-4">
-        <div class="box"></div>
-        <div class="message received" onclick="typeMessage(this, 'I want to meet your college friends bc they r so lucky to have u')"></div>
-        <div class="message received" onclick="typeMessage(this, 'Made my night seeing u')"></div>
-        <div class="message sent" onclick="typeMessage(this, 'typing...')"></div>
-    </div>
-    <!-- Add more message containers here with onclick events -->
-    <div class="message-container-5">
-        <div class="box"></div>
-        <div class="message received" onclick="typeMessage(this, 'You put too much pressure on yourself. You\'re doing great - trust me.')"></div>
-        <div class="message sent" onclick="typeMessage(this, 'typing...')"></div>
-    </div>
-    <!-- Add more message containers here with onclick events -->
-    </div>
-    <div class="message-container-6">
-        <div class="box"></div>
-        <div class="message received" onclick="typeMessage(this, 'When u love someone i think its important to know that you can\'t learn how not to live without them, and you shouldn\'t, instead live with the love they have left behind')"></div>
-        <div class="message sent" onclick="typeMessage(this, 'typing...')"></div>
-    </div>
-    </div>
-    <div class="message-container-7">
-        <div class="box"></div>
-        <div class="message sent" onclick="typeMessage(this, 'UR KILLING IT and i\'m so proud u are actually doing insane stuff')"></div>
-        <div class="message received" onclick="typeMessage(this, 'typing...')"></div>
-    </div>
-    </div>
-    <div class="message-container-8">
-        <div class="box"></div>
-        <div class="message received" onclick="typeMessage(this, 'I will go to the ends of the world with you')"></div>
-        <div class="message sent" onclick="typeMessage(this, 'typing...')"></div>
-    </div>
-    <div class="nextentry">
-        <ul style="color: rgb(255, 255, 255);">
-          <li><a style="color: rgb(255, 255, 255);" href="https://abbykalman.github.io/harmonic-collection/entry-5/" class="NextEntry">Next Entry</a></li>
-          <li><a style="color: rgb(255, 255, 255);"href="https://abbykalman.github.io/harmonic-collection/entry-3/entry-3.html">Welcome Home</a></li>
-        </ul>
-    </div>
-</body>
+        <div class="message-container1">
+            <div class="message sent top-right" data-text="it's okay and i'm so happy you texted me because I love you" onclick="toggleMessage(this)"></div>
+            <div class="message received top-left" data-text="I love you the most ever" onclick="toggleMessage(this)"></div>
+        </div>
+      
+        <div class="message-container-2">
+            <div class="message received" data-text="Thinking of you all the time and I will make lots of progress knowing you are doing well and thinking of me. Love you much xo." onclick="toggleMessage(this)"></div>
+            <div class="message sent" data-text="typing..." onclick="toggleMessage(this)"></div>
+        </div>
+        
+        <div class="message-container-3">
+            <div class="message sent top-right" data-text="i know you don't have your phone but i miss you! thinking of you" onclick="toggleMessage(this)"></div>
+            <div class="message sent bottom-right" data-text="i'm excited to hear about this experience" onclick="toggleMessage(this)"></div>
+            <div class="message sent bottom-right" data-text="u are amazing me w this" onclick="toggleMessage(this)"></div>
+            <div class="message received top-left" data-text="typing..." onclick="toggleMessage(this)"></div>
+        </div>
+   
+        <div class="message-container-4">
+            <div class="message received top-left" data-text="I want to meet your college friends bc they r so lucky to have u" onclick="toggleMessage(this)"></div>
+            <div class="message received bottom-left" data-text="Made my night seeing u" onclick="toggleMessage(this)"></div>
+            <div class="message sent bottom-right" data-text="typing..." onclick="toggleMessage(this)"></div>
+        </div>
+        
+        <div class="message-container-5">
+            <div class="message received" data-text="You put too much pressure on yourself. You're doing great - trust me." onclick="toggleMessage(this)"></div>
+            <div class="message sent" data-text="typing..." onclick="toggleMessage(this)"></div>
+        </div>
+        
+        <div class="message-container-6">
+            <div class="message received" data-text="When u love someone i think its important to know that you can't learn how not to live without them, and you shouldn't, instead live with the love they have left behind" onclick="toggleMessage(this)"></div>
+            <div class="message sent" data-text="typing..." onclick="toggleMessage(this)"></div>
+        </div>
+        
+        <div class="message-container-7">
+            <div class="message sent" data-text="typing..." onclick="toggleMessage(this)"></div>
+            <div class="message received" data-text="UR KILLING IT and i'm so proud u are actually doing insane stuff" onclick="toggleMessage(this)"></div>
+        </div>
+        
+        <div class="message-container-8">
+            <div class="message received" data-text="I will go to the ends of the world with you" onclick="toggleMessage(this)"></div>
+            <div class="message sent" data-text="typing..." onclick="toggleMessage(this)"></div>
+        </div>
+        
 
 </html>
 

@@ -43,11 +43,6 @@
       transition: opacity 1s ease-in-out, font-size 1s ease-in-out, top 1s ease-in-out;
     }
 
-  
-    .grid-visible {
-      opacity: 1;
-      visibility: visible;
-    }
     .grid-container {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -59,7 +54,7 @@
       opacity: 0;
       transition: opacity 1s ease-in-out, top 1s ease-in-out;
       position: absolute;
-      top: 500px;; /* Initial top position below the viewport */
+      top: 500px; /* Initial top position below the viewport */
       left: 50%;
       transform: translate(-50%, -50%);
       visibility: hidden;
@@ -81,6 +76,8 @@
       background-size: 400%;
       animation: square-bg-animation 9s infinite;
       transition: transform 0.3s;
+      /* Add the number as content */
+      content: attr(data-number);
     }
 
     @keyframes square-bg-animation {
@@ -92,45 +89,6 @@
       }
     }
 
-    .about-button {
-      opacity: 0;
-      position: absolute;
-      top: 18%; /* Updated position */
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: Futura, sans-serif;
-      font-size: 30px;
-      color: #ffffff; /* Burnt orange text color */
-      border: 3px dotted #62350b; /* 3px dotted border */
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1;
-      width: 200px; /* Set width to make it rectangular */
-      text-align: center; /* Center-align text */
-      font-style: italic; /* Italicized text */
-      background-color: transparent;
-    }
-    .about-paragraph strong {
-      -webkit-text-stroke: 1px white; /* Text stroke for webkit browsers */
-      text-stroke: 1px white; /* Text stroke for other browsers */
-      border-radius: 50%; /* Make the outline a circle */
-      padding: 5px; /* Adjust the padding */
-      display: inline-block;
-    }
-    .about-paragraph {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80%;
-      text-align: justify;
-      font-family: Futura, sans-serif;
-      font-size: 18px;
-      color: white;
-      z-index: 1;
-      background-color: #ff5500;
-    }
          .entry-number {
       position: absolute;
       bottom: 5px;
@@ -169,18 +127,19 @@
     .square:nth-child(10) {
       background-image: radial-gradient(circle, #00ffe1, #ff00ff, #0026ff);
     }
-
-
-    /* Bounce and slant effect for numbers on hover */
-    .square:hover::before {
+    .square::before {
       content: attr(data-number);
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) rotate(-5deg);
-      animation: bounce-text 0.5s ease infinite alternate;
+      transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+      opacity: 1; /* Initially invisible */
+      transition: transform 0.3s, opacity 0.3s;
     }
- 
+
+    .square:hover::before {
+      transform: translate(-50%, -50%) rotate(-5deg) scale(1.1);
+    }
 
     @keyframes bounce-text {
       0% {
@@ -198,43 +157,22 @@
   <div class="welcome-text">
     <p></p>
   </div>
-  <div class="about-button" onclick="toggleAbout()">About</div>
-  <div class="about-paragraph" id="aboutParagraph">
-    This website has been meticulously crafted to explore the profound impact of moments steeped in empathy and human connection on the human experience. Additionally, we have attempted to unravel the deep associations between these experiences with colors, and to understand how colors possess the incredible ability to evoke emotions. At the heart of this platform lies a singular goal – to foster unity and comprehension. We seek to illuminate the universal truth that we all encounter analogous feelings, share reminiscent memories, and are interconnected through the fundamental concepts of emotion and memory, subconsciously associating our experiences with colors. Each entry serves as a vessel, inviting viewers on a journey where empathy and human connection become tangible, sometimes with help of the nuanced interplay of colors and memories/experiences described. <strong>Welcome home, we made this for you.</strong>
-  </div>
-
   <div class="grid-container">
     <div class="square" data-number="001" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-1/'"></div> 
     <div class="square" data-number="002" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-2/'"></div>
-      <div class="square" data-number="003" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-4/'"></div>
-      <div class="square" data-number="004" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-5/'"></div>
-      <div class="square" data-number="005" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-6/'"></div>
-      <div class="square" data-number="006" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-7/'"></div>
-      <div class="square" data-number="007" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-8/'"></div>
-      <div class="square" data-number="008" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-9/'"></div>
-      <div class="square" data-number="009" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-10/'"></div>
-      <div class="square" data-number="010" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-11/'"></div>
+    <div class="square" data-number="003" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-4/'"></div>
+    <div class="square" data-number="004" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-5/'"></div>
+    <div class="square" data-number="005" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-6/'"></div>
+    <div class="square" data-number="006" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-7/'"></div>
+    <div class="square" data-number="007" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-8/'"></div>
+    <div class="square" data-number="008" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-9/'"></div>
+    <div class="square" data-number="009" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-10/'"></div>
+    <div class="square" data-number="010" onclick="window.location.href='https://abbykalman.github.io/harmonic-collection/entry-11/'"></div>
   </div>
   <script>
-    // JavaScript to toggle About paragraph visibility
-    function toggleAbout() {
-      const aboutParagraph = document.getElementById('aboutParagraph');
-      if (aboutParagraph.style.display === 'block') {
-        aboutParagraph.style.display = 'none';
-      } else {
-        aboutParagraph.style.display = 'block';
-      }
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
       const welcomeText = document.querySelector('.welcome-text');
       const gridContainer = document.querySelector('.grid-container');
-      const aboutButton = document.createElement('button');
-      aboutButton.className = 'about-button';
-      aboutButton.innerHTML = 'About';
-      aboutButton.onclick = function() {
-        toggleAbout();
-      };
 
       const welcomeTextContent = "Welcome Home: We made this for you.";
       let index = 0;
@@ -253,12 +191,6 @@
           gridContainer.style.opacity = '1';
           gridContainer.style.visibility = 'visible';
           gridContainer.style.top = '70%'; /* Adjusted grid top position below text */
-
-          // Append the About button to the body and fade it in
-          document.body.appendChild(aboutButton);
-          setTimeout(() => {
-            aboutButton.style.opacity = '1';
-          }, 500); // Adjust timing for the button to fade in
         }
       }
 
