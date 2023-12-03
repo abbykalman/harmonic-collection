@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Aura Lesson</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">\
+  <a href="https://abbykalman.github.io/harmonic-collection/entry-3/entry-3.html" class="home-link">
+    <img src="WHITEE.png" alt="Home" class="home-icon">
+  </a>
   <style>
     body {
       margin: 0;
@@ -37,22 +40,33 @@
 
     .aura-buttons button {
       animation: shimmerButton 5s ease-in-out infinite alternate;
+      transition: transform 0.2s ease-out;
     }
-
+    .aura-buttons button:active {
+  transform: translateY(2px); /* Push the button slightly down on click */
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
     .title {
       animation: shimmerTitle 5s ease-in-out infinite alternate;
     }
-
     .aura-description {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      font-family: 'Futura Bold', sans-serif;
-      color: white;
-      font-size: 24px;
+      font-family: 'Futura', sans-serif;
+      color: black;
+      font-size: 20px;
+      line-height: 1.6;
+      opacity: 1;
+  transition: opacity 0.3s ease-in-out;
     }
+    .aura-description.hide {
+  opacity: 0;
+  pointer-events: none; /* Disable pointer events to prevent interaction when hidden */
+}
 
     @keyframes shimmerButton {
       0% {
@@ -88,6 +102,7 @@
       <button class="blue" onclick="changeAura('blue')"></button>
       <button class="purple" onclick="changeAura('purple')"></button>
       <button class="white" onclick="changeAura('white')"></button>
+      <button class="brown" onclick="openChakrasPage()"></button>
     </div>
     <div class="aura-description" id="aura-description">
       <p>Auras are the manifestation of our connection to the spiritual and emotional realms, rooted in the concept of the seven chakras within our bodies. Each layer of the aura reflects our current emotional state, radiating energies that intertwine with our being. This essence can act as a magnetic force, drawing others towards us. When someone is in a positive emotional space, their aura exudes this energy, subtly influencing those around them. It's like an unspoken language—people can instinctively pick up on these positive vibrations, fostering connections and resonating with the harmony and balance within oneself. Click on the colors below to find out about what each aura color means, and how that relates to human connection.</p>
@@ -95,7 +110,9 @@
   </main>
 
   <script>
-
+ function goToChakrasPage() {
+      window.location.href = 'chakras.html'; // Replace 'chakras.html' with the actual filename of your Chakras page
+    }
   function changeAura(color) {
   const auraDescription = document.getElementById('aura-description');
   auraDescription.innerHTML = getAuraMeaning(color);
@@ -117,17 +134,17 @@
     case 'green':
       gradient = 'radial-gradient(circle, white, #009933, #00802b, #006622, #004d1a, #003311)';
       break;
-    case 'indigo':
-      gradient = 'radial-gradient(circle, white, #330099, #2d008c, #270080, #1a0053, #0d0026)';
+      case 'indigo':
+        gradient = 'radial-gradient(circle, white, #b3b3ff, #9999ff, #8080ff, #6666ff, #4d4dff)';
       break;
-    case 'blue':
-      gradient = 'radial-gradient(circle, white, #000099, #000088, #000077, #000055, #000033)';
+      case 'blue':
+          gradient = 'radial-gradient(circle, white, #99ccff, #66a3ff, #3389ff, #0066ff, #0047b3)';
       break;
     case 'purple':
       gradient = 'radial-gradient(circle, white, #990099, #800080, #660066, #4d004d, #330033)';
       break;
-    case 'white':
-      gradient = 'radial-gradient(circle, white, #000000, #1a1a1a, #333333, #4d4d4d, #666666)';
+      case 'white':
+          gradient = 'radial-gradient(circle, white, #ffffff, #e6e6e6, #cccccc, #b3b3b3, #999999)';
       break;
     default:
       gradient = 'radial-gradient(circle, red, orange, yellow, pink, green, indigo, blue, purple, white)';
@@ -139,15 +156,41 @@
     function getAuraMeaning(color) {
       switch (color) {
         case 'red':
-          return "Red aura promotes vitality, motivation, and courage. When you are in bright red aura you are physically active, have strong leadership and assertive power. You may have intense and fiery temperament.";
+          return "<span style='font-family: Futura, sans-serif;'>Red aura promotes vitality, motivation, and courage. When you are in bright red aura you are physically active, have strong leadership and assertive power. You may have intense and fiery temperament.</span>";
         case 'orange':
-          return "Orange aura represents creativity, enthusiasm, and warmth.";
-
+          return "<span style='font-family: Futura, sans-serif;'>Orange aura could indicate good circulation, self confidence, and self-motivation. When you are in bright orange aura your inner and outer communication, healing ability, and sensuality could be strong.</span>";
+        case 'yellow':
+          return "<span style='font-family: Futura, sans-serif;'>Yellow aura is about influence and power. It promotes independence and courage. It helps talent for organization and career thinking. Bright yellow aura supports discipline and integrity.</span>";
+        case 'pink':
+          return "<span style='font-family: Futura, sans-serif;'>The pink aura is a gentle loving energy. It represents tenderness, kindness, compassion, nurturing and love. Bright pink aura corresponds to a natural curiosity and a strong desire for love and peace.</span>";
+        case 'green':
+          return "<span style='font-family: Futura, sans-serif;'>Green aura is about transition, growth, and change.  Green aura could bring opportunity. Plenty of bright green aura promotes healing ability, and unity of body, soul, and mind.</span>";
+        case 'indigo':
+          return "<span style='font-family: Futura, sans-serif;'>Indigo aura brings intuition, sensitivity, and empathy, Bright indigo aura helps clarity, healing ability, mental and will power.</span>";
+        case 'blue':
+          return "<span style='font-family: Futura, sans-serif;'>Blue Aura helps one to be expressive and a good problem solver. Bright blue aura supports inner balance, trust, and confidence. </span>";
+        case 'purple':
+          return "<span style='font-family: Futura, sans-serif;'>People with plenty of purple aura usually like to be involved in spiritual causes. People with lighter purple aura are adventurous dreamer.</span>";
+        case 'white':
+          return "<span style='font-family: Futura, sans-serif;'>White aura contains all the colors. It is associated with wholeness. Murky tone of white aura shows confusion and perhaps a lot of thinking,  Bright and clean white aura shows open mind and innocence.</span>";
         // Add cases for other colors
 
         default:
           return "Select an aura color to learn more about its meaning.";
       }
+      function changeAura(color) {
+  const auraDescription = document.getElementById('aura-description');
+  auraDescription.classList.add('hide'); // Hide the description element during transition
+
+  // Wait for the transition to complete before updating content and removing the 'hide' class
+  setTimeout(() => {
+    auraDescription.innerHTML = getAuraMeaning(color);
+    auraDescription.classList.remove('hide'); // Show the description with updated content
+  }, 300); // Adjust the timing to match the transition duration
+}
+function openChakrasPage() {
+  window.location.href = 'path/to/learn_about_chakras.html'; // Replace 'path/to/learn_about_chakras.html' with the actual file path
+}
     }
   </script>
 </body>
