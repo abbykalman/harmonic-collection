@@ -1,49 +1,208 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  <title>Here's a Playlist I Made for You...</title>
-  <!-- Remember we have to move up one directory that's why we use ../ -->
   <link href="../assets/main.css" rel="stylesheet">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Music Visualizer</title>
+      <style>
+        /* Styles for the page layout */
+        body {
+          margin: 0;
+          overflow-x: hidden;
+          background-color: #111;
+          font-family: 'Allegro', sans-serif;
+          color: #fff;
+          text-align: center;
+          padding-top: 20px;
+        }
+    
+        h1 {
+          font-size: 50px;
+          text-align: center;
+          padding-top: 20px;
+          /* Shimmer animation */
+          background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red, violet); /* Rainbow colors */
+          background-size: 200% auto; /* Gradient size */
+          color: transparent;
+          -webkit-background-clip: text; /* Apply text clipping to the background */
+          background-clip: text;
+          animation: shimmer 2s linear infinite; /* Shimmer effect animation */
+        }
+    
+        @keyframes shimmer {
+          0% {
+            background-position: 0% center; /* Start position of the gradient */
+          }
+          100% {
+            background-position: 200% center; /* End position of the gradient */
+          }
+        }
+    
+        h2 {
+          font-family: 'Futura', sans-serif;
+          font-weight: normal;
+          color: #fff;
+        }
+    
+        /* Styles for arranging the song items */
+        .songs-container {
+          display: flex;
+          justify-content: space-between; /* Spread items out */
+          padding-left: 20px;
+          padding-right: 20px;
+          margin-top: 20px;
+        }
+    
+        .song-item {
+          width: calc(25% - 20px); /* Set width to 25% minus margin */
+          margin-bottom: 20px;
+        }
+    
+        .song-item:nth-child(1),
+        .song-item:nth-child(2),
+        .song-item:nth-child(3),
+        .song-item:nth-child(4) {
+          width: calc(30% - 20px); /* Set width to 30% minus margin */
+          font-size: 24px; /* Increase font size */
+        }
+    
+        canvas {
+          display: block;
+        }
+    
+        .refresh-button {
+          position: fixed;
+          bottom: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
+    </style>
   </head>
   <body>
-    <h1>Here's a Playlist I Made for You...</h1>
-  <div class="container">
-    
-    <p> I find that making someone a playlist is extremely thoughtful and songs bring people together in important moments. I sent a google form out to a group of people with the following question:</p>
-    <h2>
-      <marquee>What is a song that reminds you of a time you experienced empathy, human connection, or a time in which you felt empathetic towards another person? </marquee>
-    </h2>
-    <h3>I hoped that understanding a special song of my friends would bring me <strong>closer</strong> to them on a deeper level and <strong>understand their experiences.</strong> With this question from the google form, I compiled a playlist seen below.</h3>
-        <hr>
-      
-  </div>
-
-  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2EVRbYmfrEUkNIM82ckNR9?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <!-- Page Content -->
+    <h1>How are you feeling today?</h1>
+    <h2>Choose a song based on your emotion</h2>
   
-  <div class="nextentry">
-    <ul style="color: rgb(255, 255, 255);">
-      <li><a style="color: rgb(255, 255, 255);" href="https://abbykalman.github.io/harmonic-collection/entry-4/" class="NextEntry">Next Entry</a></li>
-      <li><a style="color: rgb(255, 255, 255);"href="https://abbykalman.github.io/harmonic-collection/entry-3/entry-3.html">Welcome Home</a></li>
-    </ul>
-  </div>
+    <div class="songs-container">
+      <!-- Upbeat Song -->
+      <div class="song-item">
+        <h3>Upbeat</h3>
+        <audio id="joy_audio" controls>
+          <source src="Martin Solveig & Dragonette - Hello (Lyrics)  i just came to say hello.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <canvas id="joy_visualizer"></canvas>
+      </div>
   
-      
-      
-
-     
-     
-    
-     
-      
-     
-     
-
-
+      <!-- Sadness Song -->
+      <div class="song-item">
+        <h3>Sadness</h3>
+        <audio id="sadness_audio" controls>
+          <source src="Pretty When You Cry.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <canvas id="sadness_visualizer"></canvas>
+      </div>
   
+      <!-- Anger Song -->
+      <div class="song-item">
+        <h3>Anger</h3>
+        <audio id="anger_audio" controls>
+          <source src="Lhabia.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <canvas id="anger_visualizer"></canvas>
+      </div>
   
-   
-    
+      <!-- Calm Song -->
+      <div class="song-item">
+        <h3>Calm</h3>
+        <audio id="calm_audio" controls>
+          <source src="genesis.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <canvas id="calm_visualizer"></canvas>
+      </div>
+    </div>
+
+    <button class="refresh-button" onclick="refreshPage()">
+      <img src="—Pngtree—white refresh icon_4543883.png" alt="Refresh" width="30" height="30">
+    </button>
   
-   
-
-
+    <!-- JavaScript -->
+    <script>
+      // Function to configure the visualizer for each song
+      function configureVisualizer(audioElement, canvasElement, color) {
+        let audioCtx, analyser, audioSrc, ctx, bufferLength, dataArray;
+  
+        audioElement.addEventListener('play', function () {
+          if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioCtx.createAnalyser();
+            audioSrc = audioCtx.createMediaElementSource(audioElement);
+            audioSrc.connect(analyser);
+            audioSrc.connect(audioCtx.destination);
+  
+            ctx = canvasElement.getContext('2d');
+            bufferLength = analyser.frequencyBinCount;
+            dataArray = new Uint8Array(bufferLength);
+            canvasElement.width = window.innerWidth;
+            canvasElement.height = window.innerHeight;
+  
+            function draw() {
+              requestAnimationFrame(draw);
+              analyser.getByteFrequencyData(dataArray);
+  
+              ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+              ctx.fillRect(0, 0, canvasElement.width, canvasElement.height);
+  
+              const centerX = canvasElement.width / 2;
+              const centerY = canvasElement.height / 2;
+              const maxRadius = Math.min(centerX, centerY);
+  
+              for (let i = 0; i < bufferLength; i++) {
+                const angle = (i / bufferLength) * Math.PI * 2;
+                const radius = maxRadius * (dataArray[i] / 255);
+  
+                ctx.fillStyle = color;
+  
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+  
+                ctx.beginPath();
+                ctx.arc(x, y, 3, 0, Math.PI * 2);
+                ctx.fill();
+              }
+            }
+  
+            draw();
+          } else {
+            // Clear canvas when switching to a new song
+            ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+          }
+        });
+  
+        // Event listeners to clear the canvas when audio is paused or ended
+        audioElement.addEventListener('pause', () => ctx.clearRect(0, 0, canvasElement.width, canvasElement.height));
+        audioElement.addEventListener('ended', () => ctx.clearRect(0, 0, canvasElement.width, canvasElement.height));
+      }
+  
+      const joyAudio = document.getElementById('joy_audio');
+    const joyCanvas = document.getElementById('joy_visualizer');
+    const sadnessAudio = document.getElementById('sadness_audio');
+    const sadnessCanvas = document.getElementById('sadness_visualizer');
+    const angerAudio = document.getElementById('anger_audio');
+    const angerCanvas = document.getElementById('anger_visualizer');
+    const calmAudio = document.getElementById('calm_audio');
+    const calmCanvas = document.getElementById('calm_visualizer');
+  
+      configureVisualizer(joyAudio, joyCanvas, 'rgb(255, 200, 0)');
+    configureVisualizer(sadnessAudio, sadnessCanvas, 'rgb(100, 149, 237)');
+    configureVisualizer(angerAudio, angerCanvas, 'rgb(255, 0, 0)');
+    configureVisualizer(calmAudio, calmCanvas, 'rgb(0, 128, 128)');
+    function refreshPage() {
+      location.reload();
+    }
+    </script>
+  </body>
+  </html>  

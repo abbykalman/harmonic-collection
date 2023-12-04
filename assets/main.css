@@ -1,84 +1,25 @@
-body{
-  box-sizing: border-box;
-  background-image: radial-gradient(circle, #1c12cd, #960de6, #e249b7);
-    background-size: 400%;
-    animation: bg-animation 9s infinite;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
-@keyframes bg-animation {
-  0% {
-      background-position: left
-  }
-  100% {
-      background-position: right;
-  }
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
 }
 
-.container{
-  /* max-width: 80vw; */
-  padding: 1em;
-  margin-left: 3rem;
-  font-family: allegro;
-  font-weight: 100;
-  text-transform: inherit;
-  background-color: 236, 143, 56;
-  
-  overflow-x: hidden;
-}
-
-marquee{
-  background-color: 236, 143, 56;
-}
-
-h1{
-  writing-mode: vertical-lr;
-
-  background-color: #ffffff;
-  color: rgb(255, 0, 144);
-  border: dashed;
-
-height: 560px;
-  
-  word-spacing: 2px;
-  letter-spacing: 1.2px;
+#songSelector {
   position: absolute;
-  left: -10px;
-  font-family: allegro;
-  transform: rotate(180deg)
-
-}
-p{
-  text-align: justify;
-  letter-spacing: 0.6px;
-  color: rgb(255, 255, 255);
-  font-family: monospace;
-  font-size: 2rem;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
 }
 
-h2{
-  color: rgb(255, 0, 144);
-  background-color: 236, 143, 56;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  font-style: italic;
-  text-transform: uppercase;
-  display: inline;
-  text-align: center;
- 
-  
-}
-h3{
-  color: rgb(255, 255, 255);
-  font-family: monospace;
-  font-size: 2rem;
-  font-weight: 100;
-  
-}
-.nextentry{
-  font-size: 16px;
-  color: rgb(255, 255, 255);
-  font-family: monospace;
-}
 
 
 
