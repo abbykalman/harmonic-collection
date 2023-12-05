@@ -164,6 +164,24 @@
 .circle-button:active {
             transform: translateY(3px); /* Push the button down on click */
         }
+        @media (max-width: 480px) {
+    .intro-text {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        width: 90%; /* Make text container wider for mobile devices */
+        margin: 0 auto; /* Center-align the text */
+        padding: 0 10px; /* Add padding to prevent text from touching edges */
+    }
+
+    .button-container {
+        flex-direction: column; /* Display buttons vertically for mobile devices */
+        left: 50%; /* Center-align the buttons */
+        transform: translateX(-50%);
+    }
+
+    .circle-button {
+        margin-bottom: 10px; /* Add space between buttons on mobile */
+    }
+}
   </style>
 </head>
 
