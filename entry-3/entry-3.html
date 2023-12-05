@@ -79,8 +79,8 @@
       background-size: 400%;
       animation: square-bg-animation 9s infinite;
       transition: transform 0.3s;
+      /* Add the number as content */
       content: attr(data-number);
-      background-size: 400%; 
     }
 
     @keyframes square-bg-animation {
@@ -91,7 +91,6 @@
         background-position: right;
       }
     }
-
 
     h2 {
       text-align: center;
@@ -152,57 +151,57 @@
   }
 
   .grid-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      position: relative;
-      visibility: visible;
-      top: 0;
-      margin-top: 20px; /* Adjust spacing between welcome text and squares */
-      margin-bottom: 20px; /* Add spacing at the bottom */
-      width: 90%; /* Adjust the width as needed */
-      max-width: 600px; /* Adjust the maximum width */
-      left: auto; /* Reset the left position */
-      transform: none; /* Reset transform */
-    }
-
-    .square {
-      width: 90vw;
-      max-width: 280px;
-      height: calc(20vw - 20px);
-      max-height: calc(50vh - 20px);
-      border-radius: 0px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Futura, sans-serif;
-      font-size: 36px;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-      position: relative;
-      background-size: 400%;
-      animation: square-bg-animation 9s infinite;
-      transition: transform 0.3s, font-size 0.3s, background-size 0.5s; /* Updated transition for background-size */
-      content: attr(data-number);
-    }
-
-    .square::before {
-      content: attr(data-number);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-      font-size: 36px; /* Adjust font size */
-      transition: transform 0.3s, font-size 0.3s;
-    }
-
-    .square:hover::before {
-      transform: translate(-50%, -50%) rotate(-15deg) scale(1);
-      font-size: 48px; /* Adjust font size */
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns */
+    gap: 10px;
+    position: relative;
+    visibility: visible;
+    top: 0;
+    margin-top: 20px; /* Adjust spacing between welcome text and squares */
+    margin-bottom: 20px; /* Add spacing at the bottom */
+    width: 90%; /* Adjust the width as needed */
+    max-width: 600px; /* Adjust the maximum width */
+    left: auto; /* Reset the left position */
+    transform: none; /* Reset transform */
   }
+
+  .square {
+  width: 90vw;
+  max-width: 280px;
+  height: calc(20vw - 20px);
+  max-height: calc(50vh - 20px);
+  border-radius: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Futura, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  background-size: 400%;
+  animation: square-bg-animation 9s infinite;
+  transition: transform 0.3s, font-size 0.3s, background-size 0.5s; /* Updated transition for background-size */
+  content: attr(data-number);
+}
+
+  .square::before {
+    content: attr(data-number);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    font-size: 36px; /* Adjust font size */
+    transition: transform 0.3s, font-size 0.3s;
+  }
+
+  .square:hover::before {
+    transform: translate(-50%, -50%) rotate(-15deg) scale(1);
+    font-size: 48px; /* Adjust font size */
+  }
+}
 
     .square:nth-child(1) {
       background-image: radial-gradient(circle, #00aeff, #dad996, rgb(158, 3, 255));
