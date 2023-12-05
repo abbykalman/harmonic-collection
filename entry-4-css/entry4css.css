@@ -370,3 +370,24 @@ body {
   height: auto; /* Automatically adjust height */
   border: none;
 }
+
+@media (max-width: 768px) {
+  .grid-container {
+    display: block; /* Change to block layout */
+    margin: 60px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .message-container {
+    border: 3px dotted white;
+    padding: 20px;
+    font-family: allegro;
+    font-size: 15px;
+    color: rgb(2, 64, 1);
+    margin-bottom: 20px;
+    max-height: none; /* Remove maximum height for mobile */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+}

@@ -10,8 +10,9 @@
     background: var(--gradient-color);
     background-size: 400%; /* Adjust as needed for the animated effect */
     animation: bg-animation 9s infinite;
-    transition: background 1s ease-in-out;
+    transition: 1s ease-in-out;
   }
+
   @keyframes bg-animation {
     0% {
       background-position: left;
@@ -70,3 +71,6 @@
     background-color: transparent; /* Set text content background to transparent */
     border: none; /* Remove border if present */
   }
+ /* Media query for screens smaller than 768px (typical phone width) */
+
+
