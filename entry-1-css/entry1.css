@@ -60,6 +60,18 @@ strong {
     width: 50px; /* Adjust the width as needed */
     height: auto; /* Allows the height to adjust proportionally */
   }
+  .next-entry {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    z-index: 1;
+  }
+
+  .next-entry img {
+    width: 50px; /* Set the width to match the house icon */
+    height: auto; /* Automatically adjust height */
+    border: none;
+  }
   
   h1 {
     margin-top: 70px; /* Adjust as needed */

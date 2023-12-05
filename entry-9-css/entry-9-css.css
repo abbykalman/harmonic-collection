@@ -16,9 +16,9 @@ body {
     font-size: 1.2em;
     font-weight: bold;
     margin-top: 10px;
-    text-decoration-color:   color:rgb(51, 0, 255);
+    text-decoration-color: rgb(51, 0, 255); /* Update this line */
     border: 2px solid #ff009d;
-    display: inline-block; /* Corrected value */
+    display: inline-block;
     padding: 5px 10px;
     border-radius: 10px;
 }
@@ -56,3 +56,26 @@ button {
 button:hover {
     background-color: #ff0055; /* Darker pink on hover */
 }
+.home-link {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 1; /* Ensure it's above other elements */
+  }
+  
+  .home-icon {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Allows the height to adjust proportionally */
+  }
+  .next-entry {
+    position: absolute;
+    top: 70px;
+    right: 18px;
+    z-index: 1;
+  }
+  
+  .next-entry img {
+    width: 50px; /* Set the width to match the house icon */
+    height: auto; /* Automatically adjust height */
+    border: none;
+  }

@@ -358,4 +358,15 @@ body {
   color: rgb(2, 64, 1);
   margin-bottom: 20px;
 }
+.next-entry {
+  position: absolute;
+  top: 70px;
+  right: 18px;
+  z-index: 1;
+}
 
+.next-entry img {
+  width: 50px; /* Set the width to match the house icon */
+  height: auto; /* Automatically adjust height */
+  border: none;
+}

@@ -19,7 +19,18 @@ canvas {
   left: 20px;
   z-index: 1000;
 }
+.next-entry {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  z-index: 1;
+}
 
+.next-entry img {
+  width: 50px; /* Set the width to match the house icon */
+  height: auto; /* Automatically adjust height */
+  border: none;
+}
 
 
 
